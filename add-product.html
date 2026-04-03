@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alta de Producto - TechZone</title>
+</head>
+<body>
+    <header>
+        <h1>TechZone</h1>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="#">Televisores</a></li>
+                <li><a href="#">Celulares</a></li>
+                <li><a href="#">Computadoras</a></li>
+                <li><a href="/contacto.html">Contacto</a></li>
+                <li><a href="/alta-producto.html">Alta Producto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Alta de Producto</h2>
+        <form action="#" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="nombre">Nombre del Producto *</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+
+            <div>
+                <label for="descripcion">Descripción *</label>
+                <textarea id="descripcion" name="descripcion" placeholder="descripcion del producto.." required></textarea>
+            </div>
+
+            <div>
+                <label for="precio">Precio ($) *</label>
+                <input type="number" id="precio" name="precio" required min="0">
+            </div>
+
+            <div>
+                <label for="categoria">Categoría *</label>
+                <select id="categoria" name="categoria" required>
+                    <option value="">Seleccionar categoría</option>
+                    <option value="televisores">Televisores</option>
+                    <option value="celulares">Celulares</option>
+                    <option value="computadoras">Computadoras</option>
+                    <option value="tablets">Tablets</option>
+                    <option value="accesorios">Accesorios</option>
+                    <option value="audio">Audio</option>
+                    <option value="gaming">Gaming</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="marca">Marca</label>
+                <input type="text" id="marca" name="marca" placeholder="Por ejemplo: MSI">
+            </div>
+
+            <div>
+                <label for="sku">SKU / Código</label>
+                <input type="text" id="sku" name="sku">
+            </div>
+
+            <div>
+                <label for="stock">Stock</label>
+                <input type="number" id="stock" name="stock" min="0" value="0">
+            </div>
+
+            <div>
+                <label for="descuento">Descuento (%)</label>
+                <input type="number" id="descuento" name="descuento" min="0" max="100" value="0">
+            </div>
+
+            <div>
+                <label for="imagen">Imagen del Producto</label>
+                <input type="file" id="imagen" name="imagen" accept="image/*">
+            </div>
+
+            <div>
+                <label for="garantia">Garantía</label>
+                <input type="text" id="garantia" name="garantia">
+            </div>
+
+            <button type="submit">Guardar Producto</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 TechZone - Tienda de Tecnología</p>
+    </footer>
+</body>
+</html>
