@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
+    <title>Contacto - TechZone</title>
+    <meta name="description" content="Contactate con TechZone, tu tienda de tecnología.">
 </head>
 <body>
     <header>
@@ -14,24 +15,46 @@
                 <li><a href="#">Televisores</a></li>
                 <li><a href="#">Celulares</a></li>
                 <li><a href="#">Computadoras</a></li>
-                <li><a href="/contacto.html">Contacto</a></li>
+                <li><a href="/contact.html" aria-current="page">Contacto</a></li>
             </ul>
         </nav>
     </header>
-    <form action="#" method="post">
-        <label for="nombre">Nombre:</label><br>
-        <input type="text" id="nombre" name="nombre" required placeholder="Ej: Juan"><br><br>
-
-        <label for="apellido">Apellido:</label><br>
-        <input type="text" id="apellido" name="apellido" required placeholder="Ej: Pérez"><br><br>
-
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required placeholder="Ej: juan@correo.com"><br><br>
-
-        <label for="mensaje">Mensaje:</label><br>
-        <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Ej: Hola, quierocontactarme con ustedes..."></textarea><br><br>
-
-        <button type="submit">Enviar</button>
-    </form>
+    <main>
+        <h2>Contacto</h2>
+        <form action="#" method="post">
+            <div>
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ej: Juan"><br><br>
+            </div>
+            <div>
+                <label for="apellido">Apellido:</label><br>
+                <input type="text" id="apellido" name="apellido" required placeholder="Ej: Pérez"><br><br>
+            </div>
+            <div>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required placeholder="Ej: juan@correo.com"><br><br>
+            </div>
+            <div>
+                <label for="asunto">Asunto</label>
+                <select id="asunto" name="asunto" required>
+                    <option value="">Seleccioná un motivo</option>
+                    <option value="consulta">Consulta de producto</option>
+                    <option value="envio">Consulta de envío</option>
+                    <option value="cambio">Cambio o devolución</option>
+                    <option value="garantia">Garantía</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+            <div>
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Ej: Hola, quiero contactarme con ustedes..."></textarea>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+        <footer>
+            <p>© 2026 TechZone - Tienda de Tecnología</p>
+            <address>Email: contacto@techzone.com | Tel: 0800-123-4567</address>
+        </footer>
+    </main>
 </body>
 </html>
