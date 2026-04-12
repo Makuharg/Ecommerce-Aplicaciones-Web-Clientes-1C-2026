@@ -120,7 +120,184 @@ main > section:first-child a:hover {
     background-color: #cccccc;
 }
 
+/* ================================
+   SECCIÓN CATEGORÍAS
+================================ */
 
+main > section:nth-child(2) {
+    padding: 32px;
+    text-align: center;
+}
+
+main > section:nth-child(2) h2 {
+    font-size: 22px;
+    margin-bottom: 16px;
+    color: #1a1a1a;
+}
+
+main > section:nth-child(2) ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+main > section:nth-child(2) ul li a {
+    text-decoration: none;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+main > section:nth-child(2) ul li a:hover {
+    background-color: #444444;
+}
+
+/* ================================
+   SECCIÓN CATÁLOGO
+================================ */
+
+#productos {
+    padding: 32px;
+}
+
+#productos h2 {
+    font-size: 26px;
+    margin-bottom: 32px;
+    color: #1a1a1a;
+}
+
+#productos h3 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    color: #1a1a1a;
+    border-bottom: 2px solid #1a1a1a;
+    padding-bottom: 8px;
+}
+
+#productos > article {
+    margin-bottom: 48px;
+}
+
+/* ================================
+   CARDS DE PRODUCTOS
+================================ */
+
+.productos-grid article {
+    background-color: #eeeeee;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.productos-grid article:hover {
+    transform: translateY(-4px);
+    background-color: #e0e0e0;
+}
+
+.productos-grid article img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 4px;
+    background-color: #cccccc;
+}
+
+.productos-grid article h4 {
+    font-size: 15px;
+    color: #1a1a1a;
+}
+
+.productos-grid article p {
+    font-size: 13px;
+    color: #666666;
+}
+
+.productos-grid article strong {
+    font-size: 16px;
+    color: #1a1a1a;
+}
+
+/* ================================
+   SELECTOR DE CANTIDAD
+================================ */
+
+.productos-grid article div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.productos-grid article div button {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.productos-grid article div button:hover {
+    background-color: #444444;
+}
+
+.productos-grid article div span {
+    font-size: 15px;
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* ================================
+   BOTÓN AGREGAR AL CARRITO
+================================ */
+
+.productos-grid article > button {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: auto;
+}
+
+.productos-grid article > button:hover {
+    background-color: #444444;
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+    background-color: #1a1a1a;
+    color: #cccccc;
+    text-align: center;
+    padding: 24px 32px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+footer address {
+    font-style: normal;
+    color: #999999;
+    font-size: 13px;
+}
 
 
 /* ================================
@@ -140,6 +317,19 @@ main > section:first-child a:hover {
 @media (max-width: 1024px) {
     .productos-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    /*productos*/
+    #productos {
+        padding: 24px;
+    }
+
+    #productos h2 {
+        font-size: 22px;
+    }
+
+    #productos h3 {
+        font-size: 18px;
     }
 }
 
@@ -177,5 +367,55 @@ main > section:first-child a:hover {
 
     main > section:first-child p {
         font-size: 16px;
+    }
+
+    /*productos en celular*/
+
+        #productos {
+        padding: 16px;
+    }
+
+    #productos h2 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    #productos h3 {
+        font-size: 16px;
+    }
+
+    #productos > article {
+        margin-bottom: 32px;
+    }
+
+    main > section:nth-child(2) {
+        padding: 20px 16px;
+    }
+
+    main > section:nth-child(2) ul {
+        gap: 8px;
+    }
+
+    main > section:nth-child(2) ul li a {
+        padding: 6px 14px;
+        font-size: 13px;
+    }
+
+    .productos-grid article {
+        padding: 12px;
+    }
+
+    .productos-grid article h4 {
+        font-size: 14px;
+    }
+
+    .productos-grid article > button {
+        font-size: 13px;
+        padding: 8px;
+    }
+    
+    /*footer en celular*/
+    footer {
+        padding: 20px 16px;
     }
 }
