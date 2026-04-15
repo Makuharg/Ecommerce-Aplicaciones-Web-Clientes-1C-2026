@@ -37,6 +37,85 @@ header {
 }
 
 /* ================================
+   HEADER ACCIONES
+   (buscador, usuario, carrito)
+================================ */
+
+.header-acciones {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#buscador {
+    padding: 8px 14px;
+    border-radius: 4px;
+    border: none;
+    font-size: 14px;
+    background-color: #2c2c2c;
+    color: #ffffff;
+    outline: none;
+    width: 200px;
+    transition: background-color 0.2s;
+}
+
+#buscador::placeholder {
+    color: #999999;
+}
+
+#buscador:focus {
+    background-color: #3a3a3a;
+}
+
+#btn-usuario {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #cccccc;
+    transition: color 0.2s;
+    padding: 0;
+}
+
+#btn-usuario:hover {
+    color: #ffffff;
+}
+
+.usuario {
+    position: relative;
+}
+
+.usuario-menu {
+    display: none;
+    position: absolute;
+    top: 32px;
+    right: 0;
+    background-color: #2c2c2c;
+    border-radius: 4px;
+    overflow: hidden;
+    min-width: 160px;
+    z-index: 100;
+}
+
+.usuario-menu a {
+    display: block;
+    padding: 12px 16px;
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.usuario-menu a:hover {
+    background-color: #3a3a3a;
+    color: #ffffff;
+}
+
+.usuario.abierto .usuario-menu {
+    display: block;
+}
+
+/* ================================
    NAV
 ================================ */
 
@@ -169,14 +248,6 @@ main > section:nth-child(2) ul li a:hover {
     font-size: 26px;
     margin-bottom: 32px;
     color: #1a1a1a;
-}
-
-#productos h3 {
-    font-size: 20px;
-    margin-bottom: 16px;
-    color: #1a1a1a;
-    border-bottom: 2px solid #1a1a1a;
-    padding-bottom: 8px;
 }
 
 #productos > article {
@@ -327,10 +398,6 @@ footer address {
     #productos h2 {
         font-size: 22px;
     }
-
-    #productos h3 {
-        font-size: 18px;
-    }
 }
 
 /* Celular */
@@ -350,6 +417,19 @@ footer address {
         gap: 12px;
         flex-wrap: wrap;
         justify-content: center;
+    }
+
+    /*header acciones en celular*/
+        .header-acciones {
+        gap: 12px;
+    }
+
+    #buscador {
+        width: 120px;
+    }
+
+    #buscador:focus {
+        width: 180px;
     }
 
     main {
@@ -378,10 +458,6 @@ footer address {
     #productos h2 {
         font-size: 20px;
         margin-bottom: 20px;
-    }
-
-    #productos h3 {
-        font-size: 16px;
     }
 
     #productos > article {

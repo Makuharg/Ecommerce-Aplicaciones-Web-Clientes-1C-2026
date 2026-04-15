@@ -14,16 +14,32 @@
 
         <nav>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="index.html#productos">Productos</a></li>
-                <li><a href="about.html" aria-current="page">Nosotros</a></li>
+                <li><a href="index.html" aria-current="page">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="about.html">Nosotros</a></li>
                 <li><a href="contact.html">Contacto</a></li>
             </ul>
         </nav>
 
-        <a href="cart.html" aria-label="Ver carrito de compras">
-            🛒 <span>Carrito</span> (<span id="cart-count">0</span>)
-        </a>
+        <div class="header-acciones">
+
+            <input type="search" id="buscador" name="buscador" placeholder="Buscar productos...">
+
+            <div class="usuario">
+                <button type="button" id="btn-usuario" aria-label="Cuenta de usuario">
+                    <i data-lucide="user"></i>
+                </button>
+                <div class="usuario-menu">
+                    <a href="login.html">Iniciar sesión</a>
+                    <a href="register.html">Registrarse</a>
+                </div>
+            </div>
+
+            <a href="cart.html" aria-label="Ver carrito de compras">
+                <i data-lucide="shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
+        </div>
     </header>
     <main>
         <h2>Contacto</h2>

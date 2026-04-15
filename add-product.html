@@ -7,17 +7,38 @@
 </head>
 <body>
     <header>
-        <h1>TechZone</h1>
+        <a href="index.html">
+            <h1>TechZone</h1>
+        </a>
+
         <nav>
             <ul>
-                <li><a href="/index.html">Inicio</a></li>
-                <li><a href="#">Televisores</a></li>
-                <li><a href="#">Celulares</a></li>
-                <li><a href="#">Computadoras</a></li>
-                <li><a href="/contacto.html">Contacto</a></li>
-                <li><a href="/alta-producto.html">Alta Producto</a></li>
+                <li><a href="index.html" aria-current="page">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="about.html">Nosotros</a></li>
+                <li><a href="contact.html">Contacto</a></li>
             </ul>
         </nav>
+
+        <div class="header-acciones">
+
+            <input type="search" id="buscador" name="buscador" placeholder="Buscar productos...">
+
+            <div class="usuario">
+                <button type="button" id="btn-usuario" aria-label="Cuenta de usuario">
+                    <i data-lucide="user"></i>
+                </button>
+                <div class="usuario-menu">
+                    <a href="login.html">Iniciar sesión</a>
+                    <a href="register.html">Registrarse</a>
+                </div>
+            </div>
+
+            <a href="cart.html" aria-label="Ver carrito de compras">
+                <i data-lucide="shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
+        </div>
     </header>
 
     <main>
