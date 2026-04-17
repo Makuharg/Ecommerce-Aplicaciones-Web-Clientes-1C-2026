@@ -26,6 +26,12 @@ header {
     width: 100%;
     z-index: 1000;
 
+    nav {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
     h1 {
     color: #ffffff;
     font-size: 24px;
@@ -362,6 +368,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    width: 100%;
 }
 
 footer address {
@@ -400,17 +407,16 @@ footer address {
     }
 }
 
-/* Celular */
-@media (max-width: 768px) {
-    .productos-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /*header en celular*/
+@media (max-width: 960px) {
     header {
         flex-direction: column;
         gap: 12px;
         padding: 12px 16px;
+
+        nav {
+            position: static;
+            transform: none;
+        }
     }
 
     nav ul {
@@ -419,7 +425,6 @@ footer address {
         justify-content: center;
     }
 
-    /*header acciones en celular*/
         .header-acciones {
         gap: 12px;
     }
@@ -435,6 +440,15 @@ footer address {
     main {
         margin-top: 120px;
     }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+    .productos-grid {
+        grid-template-columns: 1fr;
+    }
+
+
 
     /*hero en celular*/
         main > section:first-child {

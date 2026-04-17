@@ -1,0 +1,125 @@
+/* ================================
+   CONTACT - SECCIÓN PRINCIPAL
+================================ */
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 48px;
+    width: 100%;
+    max-width: 560px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.contact-card h2 {
+    font-size: 26px;
+    text-align: center;
+    color: #1a1a1a;
+    margin-bottom: 32px;
+}
+
+/* ================================
+   CAMPOS DEL FORMULARIO
+================================ */
+
+.contact-card div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.contact-card label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.contact-card input,
+.contact-card select,
+.contact-card textarea {
+    padding: 10px 14px;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #1a1a1a;
+    background-color: #fafafa;
+    outline: none;
+    transition: border-color 0.2s, background-color 0.2s;
+    font-family: inherit;
+}
+
+.asunto-mensaje {
+    margin: 25px 0 25px 0;
+
+    label{
+           margin: 24px 0 24px 0; 
+    }
+}
+
+.contact-card input:focus,
+.contact-card select:focus,
+.contact-card textarea:focus {
+    border-color: #1a1a1a;
+    background-color: #ffffff;
+}
+
+.contact-card textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ================================
+   BOTÓN ENVIAR
+================================ */
+
+.contact-card button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 8px;
+}
+
+.contact-card button[type="submit"]:hover {
+    background-color: #444444;
+}
+/* ================================
+   FOOTER
+================================ */
+footer {
+    margin-top: 25px;
+}
+
+/* ================================
+   CONTACT RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 32px 16px;
+        align-items: flex-start;
+    }
+
+    .contact-card {
+        padding: 32px 24px;
+    }
+
+    .contact-card h2 {
+        font-size: 22px;
+        margin-bottom: 24px;
+    }
+}
