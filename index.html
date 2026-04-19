@@ -248,6 +248,53 @@
         <p>&copy; 2026 TechZone - Tienda de Tecnología</p>
         <address>Email: contacto@techzone.com | Tel: 0800-123-4567</address>
     </footer>
+        <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Popup Login -->
+    <div class="popup" id="popup-login">
+        <button class="popup-cerrar" id="cerrar-login" aria-label="Cerrar">
+            <i data-lucide="x"></i>
+        </button>
+        <h2>Iniciar sesión</h2>
+        <p>Bienvenido de vuelta a TechZone</p>
+        <div>
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" name="email" placeholder="juan@correo.com" required>
+        </div>
+        <div>
+            <label for="login-password">Contraseña</label>
+            <input type="password" id="login-password" name="password" placeholder="Tu contraseña" required>
+        </div>
+        <button type="button" class="popup-btn">Iniciar sesión</button>
+        <p class="popup-footer">¿No tenés cuenta? <a href="#" id="ir-registro">Registrate</a></p>
+    </div>
+    <!-- Popup Registro -->
+    <div class="popup" id="popup-registro">
+        <button class="popup-cerrar" id="cerrar-registro" aria-label="Cerrar">
+            <i data-lucide="x"></i>
+        </button>
+        <h2>Crear cuenta</h2>
+        <p>Unite a TechZone y empezá a comprar</p>
+        <div>
+            <label for="registro-nombre">Nombre</label>
+            <input type="text" id="registro-nombre" name="nombre" placeholder="Juan" required>
+        </div>
+        <div>
+            <label for="registro-apellido">Apellido</label>
+            <input type="text" id="registro-apellido" name="apellido" placeholder="Pérez" required>
+        </div>
+        <div>
+            <label for="registro-email">Email</label>
+            <input type="email" id="registro-email" name="email" placeholder="juan@correo.com" required>
+        </div>
+        <div>
+            <label for="registro-password">Contraseña</label>
+            <input type="password" id="registro-password" name="password" placeholder="Mínimo 8 caracteres" required minlength="8">
+        </div>
+        <button type="button" class="popup-btn">Crear cuenta</button>
+        <p class="popup-footer">¿Ya tenés cuenta? <a href="#" id="ir-login">Iniciá sesión</a></p>
+    </div>
 <script>lucide.createIcons();</script>
 </body>
 </html>
