@@ -1,0 +1,172 @@
+/* ================================
+   OVERLAY
+================================ */
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+}
+
+.overlay.activo {
+    display: block;
+}
+
+/* ================================
+   POPUP BASE
+================================ */
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 40px;
+    width: 90%;
+    max-width: 440px;
+    z-index: 3000;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.popup.activo {
+    display: block;
+}
+
+/* ================================
+   BOTÓN CERRAR
+================================ */
+
+.popup-cerrar {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    color: #999999;
+    transition: color 0.2s;
+}
+
+.popup-cerrar:hover {
+    color: #1a1a1a;
+}
+
+.popup-cerrar i {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+}
+
+/* ================================
+   CONTENIDO DEL POPUP
+================================ */
+
+.popup h2 {
+    font-size: 22px;
+    color: #1a1a1a;
+    margin-bottom: 6px;
+}
+
+.popup > p {
+    font-size: 14px;
+    color: #888888;
+    margin-bottom: 24px;
+}
+
+.popup div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.popup label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.popup input {
+    padding: 10px 14px;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #1a1a1a;
+    background-color: #fafafa;
+    outline: none;
+    transition: border-color 0.2s, background-color 0.2s;
+    font-family: inherit;
+}
+
+.popup input:focus {
+    border-color: #1a1a1a;
+    background-color: #ffffff;
+}
+
+/* ================================
+   BOTÓN PRINCIPAL
+================================ */
+
+.popup-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 8px;
+}
+
+.popup-btn:hover {
+    background-color: #444444;
+}
+
+/* ================================
+   FOOTER DEL POPUP
+================================ */
+
+.popup-footer {
+    text-align: center;
+    font-size: 13px;
+    color: #888888;
+    margin-top: 16px;
+}
+
+.popup-footer a {
+    color: #1a1a1a;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.popup-footer a:hover {
+    text-decoration: underline;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+    .popup {
+        padding: 32px 24px;
+    }
+
+    .popup h2 {
+        font-size: 20px;
+    }
+}
