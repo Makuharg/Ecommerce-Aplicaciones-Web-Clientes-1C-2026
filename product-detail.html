@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Producto - TechZone</title>
+    <meta name="description" content="Detalle del producto seleccionado en TechZone.">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/product-detail.css">
+    <link rel="stylesheet" href="css/popups.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <h1>TechZone</h1>
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#productos">Productos</a></li>
+                <li><a href="about.html">Nosotros</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-acciones">
+            <input type="search" id="buscador" name="buscador" placeholder="Buscar productos...">
+            <div class="usuario">
+                <button type="button" id="btn-usuario" aria-label="Cuenta de usuario">
+                    <i data-lucide="user"></i>
+                </button>
+                <div class="usuario-menu">
+                    <a href="#" id="ir-login">Iniciar sesión</a>
+                    <a href="#" id="ir-registro">Registrarse</a>
+                </div>
+            </div>
+            <a href="cart.html" aria-label="Ver carrito de compras">
+                <i data-lucide="shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+    <main class="detalle-section">
+
+        <!-- Imagen -->
+        <div class="detalle-imagen">
+            <img src="img/placeholder.jpg" alt="Imagen del producto" id="producto-imagen">
+        </div>
+
+        <!-- Info -->
+        <div class="detalle-info">
+
+            <p class="detalle-categoria" id="producto-categoria">Categoría</p>
+            <h2 id="producto-nombre">Nombre del Producto</h2>
+            <p class="detalle-precio" id="producto-precio">$000.000</p>
+            <p class="detalle-descripcion" id="producto-descripcion">Descripción del producto.</p>
+
+            <!-- Especificaciones técnicas -->
+            <div class="detalle-specs">
+                <h3>Especificaciones técnicas</h3>
+                <ul id="producto-specs">
+                    <li><span>Especificación</span><span>Valor</span></li>
+                    <li><span>Especificación</span><span>Valor</span></li>
+                    <li><span>Especificación</span><span>Valor</span></li>
+                </ul>
+            </div>
+
+            <!-- Selector de cantidad -->
+            <div class="detalle-cantidad">
+                <button type="button" id="btn-restar">-</button>
+                <span id="cantidad">0</span>
+                <button type="button" id="btn-sumar">+</button>
+            </div>
+
+            <!-- Botón agregar al carrito -->
+            <button type="button" class="detalle-btn-carrito">
+                <i data-lucide="shopping-cart"></i>
+                Agregar al carrito
+            </button>
+
+            <!-- Botón volver -->
+            <a href="index.html#productos" class="detalle-volver">← Volver al catálogo</a>
+
+        </div>
+
+    </main>
+    <footer>
+        <p>&copy; 2026 TechZone - Tienda de Tecnología</p>
+        <address>Email: contacto@techzone.com | Tel: 0800-123-4567</address>
+    </footer>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Popup Login -->
+    <div class="popup" id="popup-login">
+        <button class="popup-cerrar" id="cerrar-login" aria-label="Cerrar">
+            <i data-lucide="x"></i>
+        </button>
+        <h2>Iniciar sesión</h2>
+        <p>Bienvenido de vuelta a TechZone</p>
+        <div>
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" name="email" placeholder="juan@correo.com" required>
+        </div>
+        <div>
+            <label for="login-password">Contraseña</label>
+            <input type="password" id="login-password" name="password" placeholder="Tu contraseña" required>
+        </div>
+        <button type="button" class="popup-btn">Iniciar sesión</button>
+        <p class="popup-footer">¿No tenés cuenta? <a href="#" id="ir-registro">Registrate</a></p>
+    </div>
+
+    <!-- Popup Registro -->
+    <div class="popup" id="popup-registro">
+        <button class="popup-cerrar" id="cerrar-registro" aria-label="Cerrar">
+            <i data-lucide="x"></i>
+        </button>
+        <h2>Crear cuenta</h2>
+        <p>Unite a TechZone y empezá a comprar</p>
+        <div>
+            <label for="registro-nombre">Nombre</label>
+            <input type="text" id="registro-nombre" name="nombre" placeholder="Juan" required>
+        </div>
+        <div>
+            <label for="registro-apellido">Apellido</label>
+            <input type="text" id="registro-apellido" name="apellido" placeholder="Pérez" required>
+        </div>
+        <div>
+            <label for="registro-email">Email</label>
+            <input type="email" id="registro-email" name="email" placeholder="juan@correo.com" required>
+        </div>
+        <div>
+            <label for="registro-password">Contraseña</label>
+            <input type="password" id="registro-password" name="password" placeholder="Mínimo 8 caracteres" required minlength="8">
+        </div>
+        <button type="button" class="popup-btn">Crear cuenta</button>
+        <p class="popup-footer">¿Ya tenés cuenta? <a href="#" id="ir-login">Iniciá sesión</a></p>
+    </div>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
