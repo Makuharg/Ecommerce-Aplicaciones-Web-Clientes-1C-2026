@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin - TechZone</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+    <header class="admin-header">
+        <a href="index.html">
+            <h1>TechZone</h1>
+        </a>
+        <span class="admin-badge">Panel Admin</span>
+        <a href="index.html" class="admin-cerrar-sesion">
+            <i data-lucide="log-out"></i>
+            Cerrar sesión
+        </a>
+    </header>
+        <div class="admin-layout">
+
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <nav>
+                <ul>
+                    <li class="activo">
+                        <a href="#productosAdmin">
+                            <i data-lucide="package"></i>
+                            Productos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#agregar">
+                            <i data-lucide="plus-circle"></i>
+                            Agregar producto
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="admin-main">
+            <!-- Tabla de productos -->
+            <section id="productosAdmin" class="admin-section">
+                <div class="admin-section-header">
+                    <h2 class="admin-section-h2" >Productos</h2>
+                    <button type="button" class="admin-btn-agregar">
+                        <i data-lucide="plus"></i>
+                        Agregar producto
+                    </button>
+                </div>
+
+                <div class="admin-tabla-wrap">
+                    <table class="admin-tabla">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Categoría</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img src="img/tv-55-4k.jpg" alt="Smart TV 55 pulgadas 4K"></td>
+                                <td>Smart TV 55" 4K Ultra HD</td>
+                                <td>$450.000</td>
+                                <td>12</td>
+                                <td><span class="admin-categoria">Televisores</span></td>
+                                <td class="admin-acciones">
+                                    <a href="product-detail.html" class="btn-ver">
+                                        <i data-lucide="eye"></i>
+                                    </a>
+                                    <button type="button" class="btn-editar">
+                                        <i data-lucide="pencil"></i>
+                                    </button>
+                                    <button type="button" class="btn-eliminar">
+                                        <i data-lucide="trash-2"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="img/laptop-gaming.jpg" alt="Laptop Gaming 17 pulgadas"></td>
+                                <td>Laptop Gaming 17"</td>
+                                <td>$2.100.000</td>
+                                <td>5</td>
+                                <td><span class="admin-categoria">Computadoras</span></td>
+                                <td class="admin-acciones">
+                                    <a href="product-detail.html" class="btn-ver">
+                                        <i data-lucide="eye"></i>
+                                    </a>
+                                    <button type="button" class="btn-editar">
+                                        <i data-lucide="pencil"></i>
+                                    </button>
+                                    <button type="button" class="btn-eliminar">
+                                        <i data-lucide="trash-2"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="img/smartphone-premium.jpg" alt="Smartphone Premium 512GB"></td>
+                                <td>Smartphone Premium 512GB</td>
+                                <td>$980.000</td>
+                                <td>8</td>
+                                <td><span class="admin-categoria">Celulares</span></td>
+                                <td class="admin-acciones">
+                                    <a href="product-detail.html" class="btn-ver">
+                                        <i data-lucide="eye"></i>
+                                    </a>
+                                    <button type="button" class="btn-editar">
+                                        <i data-lucide="pencil"></i>
+                                    </button>
+                                    <button type="button" class="btn-eliminar">
+                                        <i data-lucide="trash-2"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <!-- Formulario agregar producto -->
+            <section id="agregar" class="admin-section">
+                <div class="admin-section-header">
+                    <h2>Agregar producto</h2>
+                </div>
+
+                <form action="#" method="POST" enctype="multipart/form-data" class="admin-form">
+                    <div>
+                        <label for="nombre">Nombre del Producto *</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div>
+                        <label for="descripcion">Descripción *</label>
+                        <textarea id="descripcion" name="descripcion" placeholder="Descripción del producto..." required></textarea>
+                    </div>
+                    <div>
+                        <label for="precio">Precio ($) *</label>
+                        <input type="number" id="precio" name="precio" required min="0" step="1">
+                    </div>
+                    <div>
+                        <label for="categoria">Categoría *</label>
+                        <select id="categoria" name="categoria" required>
+                            <option value="">Seleccionar categoría</option>
+                            <option value="televisores">Televisores</option>
+                            <option value="celulares">Celulares</option>
+                            <option value="computadoras">Computadoras</option>
+                            <option value="tablets">Tablets</option>
+                            <option value="accesorios">Accesorios</option>
+                            <option value="audio">Audio</option>
+                            <option value="gaming">Gaming</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="marca">Marca</label>
+                        <input type="text" id="marca" name="marca" placeholder="Por ejemplo: MSI">
+                    </div>
+                    <div>
+                        <label for="sku">SKU / Código</label>
+                        <input type="text" id="sku" name="sku">
+                    </div>
+                    <div>
+                        <label for="stock">Stock</label>
+                        <input type="number" id="stock" name="stock" min="0" value="0">
+                    </div>
+                    <div>
+                        <label for="descuento">Descuento (%)</label>
+                        <input type="number" id="descuento" name="descuento" min="0" max="100" value="0">
+                    </div>
+                    <div>
+                        <label for="imagen">Imagen del Producto</label>
+                        <input type="file" id="imagen" name="imagen" accept="image/*">
+                    </div>
+                    <div>
+                        <label for="garantia">Garantía</label>
+                        <select id="garantia" name="garantia">
+                            <option value="">Sin garantía</option>
+                            <option value="6meses">6 meses</option>
+                            <option value="1anio">1 año</option>
+                            <option value="2anios">2 años</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="admin-btn-submit">Guardar producto</button>
+                </form>
+            </section>
+
+        </main>
+    </div>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
