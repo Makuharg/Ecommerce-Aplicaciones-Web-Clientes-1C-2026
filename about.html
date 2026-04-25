@@ -39,10 +39,10 @@
                 </div>
             </div>
 
-            <a href="cart.html" aria-label="Ver carrito de compras">
+            <button type="button" id="btn-carrito" aria-label="Ver carrito">
                 <i data-lucide="shopping-cart"></i>
                 <span id="cart-count">0</span>
-            </a>
+            </button>
         </div>
     </header>
     <main>
@@ -141,6 +141,29 @@
         </div>
         <button type="button" class="popup-btn">Crear cuenta</button>
         <p class="popup-footer">¿Ya tenés cuenta? <a href="#" id="ir-login">Iniciá sesión</a></p>
+    </div>
+        <!-- Panel carrito -->
+    <div class="carrito-panel" id="carrito-panel">
+
+        <div class="carrito-header">
+            <h2>Carrito</h2>
+            <button type="button" id="cerrar-carrito" aria-label="Cerrar carrito">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+
+        <div class="carrito-items" id="carrito-items">
+            <p class="carrito-vacio">Tu carrito está vacío.</p>
+        </div>
+
+        <div class="carrito-footer">
+            <div class="carrito-total">
+                <span>Total</span>
+                <span id="carrito-total">$0</span>
+            </div>
+            <button type="button" class="carrito-btn-finalizar">Finalizar compra</button>
+        </div>
+
     </div>
 <script>lucide.createIcons();</script>
 <script src="js/popups.js"></script>
