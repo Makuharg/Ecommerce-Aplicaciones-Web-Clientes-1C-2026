@@ -37,10 +37,10 @@
                     <a href="#" id="ir-registro">Registrarse</a>
                 </div>
             </div>
-            <a href="cart.html" aria-label="Ver carrito de compras">
+            <button type="button" id="btn-carrito" aria-label="Ver carrito">
                 <i data-lucide="shopping-cart"></i>
                 <span id="cart-count">0</span>
-            </a>
+            </button>
         </div>
     </header>
     <main class="detalle-section">
@@ -76,7 +76,7 @@
             </div>
 
             <!-- Botón agregar al carrito -->
-            <button type="button" class="detalle-btn-carrito">
+            <button type="button" class="detalle-btn-carrito" id="btn-agregar-carrito">
                 <i data-lucide="shopping-cart"></i>
                 Agregar al carrito
             </button>
@@ -163,5 +163,6 @@
         </div>
     <script>lucide.createIcons();</script>
     <script src="js/carrito.js"></script>
+    <script src="js/product-detail.js"></script>
 </body>
 </html>
