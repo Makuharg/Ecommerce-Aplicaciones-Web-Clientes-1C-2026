@@ -238,6 +238,10 @@ main > section:nth-child(2) ul li a {
     transition: background-color 0.2s;
 }
 
+main > section:nth-child(2) ul li a.activo {
+    background-color: #444444;
+}
+
 main > section:nth-child(2) ul li a:hover {
     background-color: #444444;
 }
