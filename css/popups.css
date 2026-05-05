@@ -349,6 +349,254 @@
 }
 
 /* ================================
+   BOTÓN GESTIÓN EN HEADER
+================================ */
+
+.btn-gestion {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background-color: #2c2c2c;
+    color: #cccccc;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-gestion:hover {
+    background-color: #3a3a3a;
+    color: #ffffff;
+}
+
+.btn-gestion i {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+}
+
+.oculto {
+    display: none !important;
+}
+
+/* ================================
+   MODAL GESTIÓN
+================================ */
+
+#popup-gestion {
+    width: 95%;
+    max-width: 640px;
+    max-height: 85vh;
+    overflow-y: auto;
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#popup-gestion.activo {
+    display: flex;
+}
+
+#popup-gestion h2 {
+    font-size: 20px;
+    color: #1a1a1a;
+    padding-right: 24px;
+}
+
+/* ================================
+   FORMULARIO AGREGAR
+================================ */
+
+.gestion-agregar {
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.gestion-agregar summary {
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #1a1a1a;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.2s;
+}
+
+.gestion-agregar summary:hover {
+    background-color: #f0f0f0;
+}
+
+.gestion-agregar summary::after {
+    content: '+';
+    font-size: 18px;
+    color: #888888;
+}
+
+.gestion-agregar[open] summary::after {
+    content: '−';
+}
+
+.gestion-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    padding: 16px;
+}
+
+.gestion-form div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.gestion-form label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.gestion-form input,
+.gestion-form select,
+.gestion-form textarea {
+    padding: 8px 12px;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #1a1a1a;
+    background-color: #fafafa;
+    outline: none;
+    transition: border-color 0.2s;
+    font-family: inherit;
+}
+
+.gestion-form input:focus,
+.gestion-form select:focus,
+.gestion-form textarea:focus {
+    border-color: #1a1a1a;
+    background-color: #ffffff;
+}
+
+.gestion-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.gestion-form .popup-btn {
+    grid-column: 1 / -1;
+    margin-top: 4px;
+}
+
+/* ================================
+   BUSCADOR GESTIÓN
+================================ */
+
+.gestion-buscar input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #1a1a1a;
+    background-color: #fafafa;
+    outline: none;
+    transition: border-color 0.2s;
+    font-family: inherit;
+}
+
+.gestion-buscar input:focus {
+    border-color: #1a1a1a;
+    background-color: #ffffff;
+}
+
+/* ================================
+   LISTA DE PRODUCTOS
+================================ */
+
+.gestion-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.gestion-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eeeeee;
+    transition: background-color 0.2s;
+}
+
+.gestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+.gestion-item-nombre {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+.gestion-item-precio {
+    font-size: 13px;
+    color: #888888;
+    margin-top: 2px;
+}
+
+.gestion-item-acciones {
+    display: flex;
+    gap: 8px;
+}
+
+.gestion-btn-editar,
+.gestion-btn-eliminar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid #eeeeee;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.gestion-btn-editar i {
+    width: 14px;
+    height: 14px;
+    stroke: #555555;
+}
+
+.gestion-btn-eliminar i {
+    width: 14px;
+    height: 14px;
+    stroke: #cc3333;
+}
+
+.gestion-btn-editar:hover {
+    background-color: #f5f5f5;
+    border-color: #dddddd;
+}
+
+.gestion-btn-eliminar:hover {
+    background-color: #fff0f0;
+    border-color: #ffcccc;
+}
+
+
+/* ================================
    RESPONSIVE
 ================================ */
 
@@ -363,5 +611,13 @@
         .carrito-panel {
         width: 100%;
         right: -100%;
+    }
+
+    .gestion-form {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-gestion span {
+        display: none;
     }
 }
