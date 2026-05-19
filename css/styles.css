@@ -33,12 +33,12 @@ header {
     }
 
     h1 {
-    color: #ffffff;
-    font-size: 24px;
+        color: #ffffff;
+        font-size: 24px;
     }
 
     a {
-    text-decoration: none;
+        text-decoration: none;
     }
 }
 
@@ -131,20 +131,20 @@ nav ul {
     gap: 24px;
 
     li a {
-    color: #cccccc;
-    text-decoration: none;
-    font-size: 15px;
-    transition: color 0.2s;
+        color: #cccccc;
+        text-decoration: none;
+        font-size: 15px;
+        transition: color 0.2s;
     }
 
     li a:hover {
-    color: #ffffff;
+        color: #ffffff;
     }
 
     li a[aria-current="page"] {
-    color: #ffffff;
-    font-weight: bold;
-    border-bottom: 2px solid #ffffff;
+        color: #ffffff;
+        font-weight: bold;
+        border-bottom: 2px solid #ffffff;
     }
 }
 
@@ -166,7 +166,6 @@ header > a:hover {
 main {
     margin-top: 72px;
 }
-
 
 /* ================================
    HERO
@@ -290,11 +289,26 @@ main > section:nth-child(2) ul li a:hover {
 .productos-grid article h4 {
     font-size: 15px;
     color: #1a1a1a;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.4em;
 }
 
 .productos-grid article p {
     font-size: 13px;
     color: #666666;
+}
+
+.productos-grid article p:first-of-type {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.6em;
 }
 
 .productos-grid article strong {
@@ -377,7 +391,6 @@ footer address {
     font-size: 13px;
 }
 
-
 /* ================================
    BREAKPOINTS
    - Celular:  menos de 768px
@@ -397,7 +410,6 @@ footer address {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /*productos*/
     #productos {
         padding: 24px;
     }
@@ -410,13 +422,13 @@ footer address {
 @media (max-width: 960px) {
     header {
         flex-direction: column;
-        gap: 12px;
-        padding: 12px 16px;
+        gap: 8px;
+        padding: 10px 16px;
+    }
 
-        nav {
-            position: static;
-            transform: none;
-        }
+    header nav {
+        position: static;
+        transform: none;
     }
 
     nav ul {
@@ -425,16 +437,14 @@ footer address {
         justify-content: center;
     }
 
-        .header-acciones {
+    .header-acciones {
         gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     #buscador {
-        width: 120px;
-    }
-
-    #buscador:focus {
-        width: 180px;
+        width: 160px;
     }
 
     main {
@@ -448,10 +458,7 @@ footer address {
         grid-template-columns: 1fr;
     }
 
-
-
-    /*hero en celular*/
-        main > section:first-child {
+    main > section:first-child {
         padding: 48px 16px;
     }
 
@@ -463,9 +470,7 @@ footer address {
         font-size: 16px;
     }
 
-    /*productos en celular*/
-
-        #productos {
+    #productos {
         padding: 16px;
     }
 
@@ -474,16 +479,8 @@ footer address {
         margin-bottom: 20px;
     }
 
-    #productos > article {
-        margin-bottom: 32px;
-    }
-
     main > section:nth-child(2) {
-        padding: 20px 16px;
-    }
-
-    main > section:nth-child(2) ul {
-        gap: 8px;
+        padding: 20px 16px 32px 16px;
     }
 
     main > section:nth-child(2) ul li a {
@@ -503,9 +500,9 @@ footer address {
         font-size: 13px;
         padding: 8px;
     }
-    
-    /*footer en celular*/
+
     footer {
         padding: 20px 16px;
     }
 }
+
