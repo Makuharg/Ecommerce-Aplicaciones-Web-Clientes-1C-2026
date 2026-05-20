@@ -41,6 +41,7 @@
                 <div class="usuario-menu">
                     <a href="#" id="ir-login">Iniciar sesión</a>
                     <a href="#" id="ir-registro">Registrarse</a>
+                    <button type="button" id="btn-cerrar-sesion" class="oculto">Cerrar sesión</button>
                 </div>
             </div>
 
@@ -265,15 +266,17 @@
         </button>
         <h2>Iniciar sesión</h2>
         <p>Bienvenido de vuelta a TechZone</p>
-        <div>
-            <label for="login-email">Email</label>
-            <input type="email" id="login-email" name="email" placeholder="juan@correo.com" required>
-        </div>
-        <div>
-            <label for="login-password">Contraseña</label>
-            <input type="password" id="login-password" name="password" placeholder="Tu contraseña" required>
-        </div>
-        <button type="button" class="popup-btn">Iniciar sesión</button>
+        <form>
+            <div>
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" name="email" placeholder="juan@correo.com" required>
+            </div>
+            <div>
+                <label for="login-password">Contraseña</label>
+                <input type="password" id="login-password" name="password" placeholder="Tu contraseña" required>
+            </div>
+            <button type="submit" class="popup-btn">Iniciar sesión</button>
+        </form>
         <p class="popup-footer">¿No tenés cuenta? <a href="#" id="ir-registro">Registrate</a></p>
     </div>
     <!-- Popup Registro -->
@@ -424,5 +427,6 @@
 <script src="js/carrito.js"></script>
 <script src="js/filtros.js"></script>
 <script src="js/buscador.js"></script>
+<script src="js/auth.js"></script>
 </body>
 </html>
