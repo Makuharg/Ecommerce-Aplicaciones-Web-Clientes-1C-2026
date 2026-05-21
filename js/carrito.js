@@ -24,6 +24,7 @@ btnCarrito.addEventListener('click', (e) => {
     e.stopPropagation();
     carritoPanel.classList.toggle('abierto');
     overlay.classList.toggle('activo');
+    document.body.style.overflow = 'hidden';
 });
 
 cerrarCarrito.addEventListener('click', () => {
@@ -33,7 +34,9 @@ cerrarCarrito.addEventListener('click', () => {
 
 overlay.addEventListener('click', () => {
     carritoPanel.classList.remove('abierto');
+    popupGestion.classList.remove('activo');
     overlay.classList.remove('activo');
+    document.body.style.overflow = '';
 });
 
 // ================================
