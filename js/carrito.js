@@ -50,6 +50,7 @@ botonesAgregarCarrito.forEach(boton => {
         const precio = card.querySelector('strong').textContent;
         const cantidadSpan = card.querySelector('.cantidad');
         const cantidad = parseInt(cantidadSpan.textContent);
+        const imagen = card.querySelector('img').src;
 
         if (cantidad === 0) return;
 
@@ -63,7 +64,8 @@ botonesAgregarCarrito.forEach(boton => {
             carrito.push({
                 nombre,
                 precio: precioNumero,
-                cantidad
+                cantidad,
+                imagen
             });
         }
 
@@ -91,7 +93,7 @@ function renderizarCarrito() {
         const item = document.createElement('div');
         item.classList.add('carrito-item');
         item.innerHTML = `
-            <img src="img/placeholder.jpg" alt="${producto.nombre}">
+            <img src="${producto.imagen}" alt="${producto.nombre}">
             <div class="carrito-item-info">
                 <p class="carrito-item-nombre">${producto.nombre}</p>
                 <p class="carrito-item-precio">$${producto.precio.toLocaleString('es-AR')}</p>
