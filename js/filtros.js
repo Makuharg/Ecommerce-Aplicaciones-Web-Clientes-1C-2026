@@ -3,17 +3,28 @@
 // ================================
 
 const botonesCategoria = document.querySelectorAll('.btn-categoria');
-const cards = document.querySelectorAll('.productos-grid article');
+const todasLasCards = document.querySelectorAll('.productos-grid article');
 
 // ================================
-// FUNCIONES
+// ESTADO
 // ================================
 
-function filtrarProductos(categoria) {
-    cards.forEach(card => {
-        if (categoria === 'todos') {
-            card.style.display = 'flex';
-        } else if (card.dataset.categoria === categoria) {
+let categoriaActiva = 'todos';
+let busquedaActiva = '';
+
+// ================================
+// FUNCIÓN CENTRAL
+// ================================
+
+function aplicarFiltros() {
+    todasLasCards.forEach(card => {
+        const nombre = card.querySelector('h4').textContent.toLowerCase();
+        const categoria = card.dataset.categoria;
+
+        const coincideCategoria = categoriaActiva === 'todos' || categoria === categoriaActiva;
+        const coincideBusqueda = nombre.includes(busquedaActiva);
+
+        if (coincideCategoria && coincideBusqueda) {
             card.style.display = 'flex';
         } else {
             card.style.display = 'none';
@@ -22,21 +33,19 @@ function filtrarProductos(categoria) {
 }
 
 function marcarActivo(botonActivo) {
-    botonesCategoria.forEach(boton => {
-        boton.classList.remove('activo');
-    });
+    botonesCategoria.forEach(boton => boton.classList.remove('activo'));
     botonActivo.classList.add('activo');
 }
 
 // ================================
-// EVENTOS
+// EVENTOS CATEGORÍAS
 // ================================
 
 botonesCategoria.forEach(boton => {
     boton.addEventListener('click', (e) => {
         e.preventDefault();
-        const categoria = boton.dataset.categoria;
-        filtrarProductos(categoria);
+        categoriaActiva = boton.dataset.categoria;
         marcarActivo(boton);
+        aplicarFiltros();
     });
 });
