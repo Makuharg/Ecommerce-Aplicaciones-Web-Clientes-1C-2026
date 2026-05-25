@@ -14,7 +14,8 @@ const botonesAgregarCarrito = document.querySelectorAll('.btn-agregar-carrito');
 // ESTADO DEL CARRITO
 // ================================
 
-let carrito = [];
+let carritoGuardado = localStorage.getItem('carrito');
+let carrito = carritoGuardado ? JSON.parse(carritoGuardado) : [];
 
 // ================================
 // ABRIR Y CERRAR
@@ -30,6 +31,7 @@ btnCarrito.addEventListener('click', (e) => {
 cerrarCarrito.addEventListener('click', () => {
     carritoPanel.classList.remove('abierto');
     overlay.classList.remove('activo');
+    document.body.style.overflow = 'scroll';
 });
 
 overlay.addEventListener('click', () => {
@@ -83,34 +85,43 @@ function renderizarCarrito() {
 
     if (carrito.length === 0) {
         carritoItems.innerHTML = '<p class="carrito-vacio">Tu carrito está vacío.</p>';
-        actualizarTotal();
-        actualizarContador();
-        return;
+    } else {
+        carrito.forEach((producto, index) => {
+            const subtotal = producto.precio * producto.cantidad;
+            const item = document.createElement('div');
+            item.classList.add('carrito-item');
+            item.innerHTML = `
+                <img src="${producto.imagen}" alt="${producto.nombre}">
+                <div class="carrito-item-info">
+                    <p class="carrito-item-nombre">${producto.nombre}</p>
+                    <p class="carrito-item-precio">$${producto.precio.toLocaleString('es-AR')}</p>
+                    <div class="carrito-item-cantidad">
+                        <button type="button" class="carrito-restar" data-index="${index}">-</button>
+                        <span>${producto.cantidad}</span>
+                        <button type="button" class="carrito-sumar" data-index="${index}">+</button>
+                    </div>
+                    <p class="carrito-item-subtotal">$${subtotal.toLocaleString('es-AR')}</p>
+                </div>
+            `;
+            carritoItems.appendChild(item);
+        });
+        asignarEventosCantidad();
     }
 
-    carrito.forEach((producto, index) => {
-        const subtotal = producto.precio * producto.cantidad;
-        const item = document.createElement('div');
-        item.classList.add('carrito-item');
-        item.innerHTML = `
-            <img src="${producto.imagen}" alt="${producto.nombre}">
-            <div class="carrito-item-info">
-                <p class="carrito-item-nombre">${producto.nombre}</p>
-                <p class="carrito-item-precio">$${producto.precio.toLocaleString('es-AR')}</p>
-                <div class="carrito-item-cantidad">
-                    <button type="button" class="carrito-restar" data-index="${index}">-</button>
-                    <span>${producto.cantidad}</span>
-                    <button type="button" class="carrito-sumar" data-index="${index}">+</button>
-                </div>
-                <p class="carrito-item-subtotal">$${subtotal.toLocaleString('es-AR')}</p>
-            </div>
-        `;
-        carritoItems.appendChild(item);
-    });
-
-    asignarEventosCantidad();
     actualizarTotal();
     actualizarContador();
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+
+    const btnFinalizar = document.querySelector('.carrito-btn-finalizar');
+    if (btnFinalizar) {
+        if (carrito.length === 0) {
+            btnFinalizar.style.opacity = '0.4';
+            btnFinalizar.style.pointerEvents = 'none';
+        } else {
+            btnFinalizar.style.opacity = '1';
+            btnFinalizar.style.pointerEvents = 'auto';
+        }
+    }
 }
 
 // ================================
@@ -180,7 +191,8 @@ if (btnAgregarDetalle) {
             carrito.push({
                 nombre,
                 precio: precioNumero,
-                cantidad: cantidadDetalle
+                cantidad: cantidadDetalle,
+                imagen: 'img/placeholder.jpg'
             });
         }
 
@@ -188,3 +200,9 @@ if (btnAgregarDetalle) {
         renderizarCarrito();
     });
 }
+
+// ================================
+// INICIALIZAR
+// ================================
+
+renderizarCarrito();

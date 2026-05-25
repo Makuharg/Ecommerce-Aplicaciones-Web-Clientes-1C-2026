@@ -1,0 +1,146 @@
+/* ================================
+   CHECKOUT
+================================ */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-main {
+    flex: 1;
+    max-width: 640px;
+    padding: 48px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: center;   
+    align-self: center;
+}
+
+.checkout-main h2 {
+    font-size: 26px;
+    color: #1a1a1a;
+}
+
+/* ================================
+   LISTA DE PRODUCTOS
+================================ */
+
+.checkout-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.checkout-vacio {
+    text-align: center;
+    color: #999999;
+    font-size: 14px;
+}
+
+.checkout-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #eeeeee;
+}
+
+.checkout-item img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 6px;
+    background-color: #eeeeee;
+    flex-shrink: 0;
+}
+
+.checkout-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.checkout-item-nombre {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+.checkout-item-cantidad {
+    font-size: 13px;
+    color: #888888;
+}
+
+.checkout-item-subtotal {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+/* ================================
+   TOTAL
+================================ */
+
+.checkout-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* ================================
+   BOTONES
+================================ */
+
+.checkout-btn-confirmar {
+    width: 100%;
+    padding: 14px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.checkout-btn-confirmar:hover {
+    background-color: #444444;
+}
+
+.checkout-volver {
+    text-align: center;
+    font-size: 14px;
+    color: #888888;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.checkout-volver:hover {
+    color: #1a1a1a;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+
+    .checkout-main h2 {
+        font-size: 22px;
+        text-align: center;
+        margin-top: 10px
+    }
+}

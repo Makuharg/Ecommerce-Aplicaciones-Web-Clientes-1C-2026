@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - TechZone</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/popups.css">
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <h1>TechZone</h1>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#productos">Productos</a></li>
+                <li><a href="about.html">Nosotros</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="header-acciones">
+            <input type="search" id="buscador" name="buscador" placeholder="Buscar productos...">
+            <button type="button" id="btn-gestion" class="btn-gestion oculto">
+                <i data-lucide="settings"></i>
+                Gestión productos
+            </button>
+            <div class="usuario">
+                <button type="button" id="btn-usuario" aria-label="Cuenta de usuario">
+                    <i data-lucide="user"></i>
+                </button>
+                <div class="usuario-menu">
+                    <a href="#" id="ir-login">Iniciar sesión</a>
+                    <a href="#" id="ir-registro">Registrarse</a>
+                    <button type="button" id="btn-cerrar-sesion" class="oculto">Cerrar sesión</button>
+                </div>
+            </div>
+            <button type="button" id="btn-carrito" aria-label="Ver carrito">
+                <i data-lucide="shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+    <main class="checkout-main">
+
+        <h2>Resumen del pedido</h2>
+
+        <!-- Lista de productos -->
+        <div class="checkout-lista" id="checkout-lista">
+            <p class="checkout-vacio">Tu carrito está vacío.</p>
+        </div>
+
+        <!-- Total -->
+        <div class="checkout-total">
+            <span>Total</span>
+            <span id="checkout-total">$0</span>
+        </div>
+
+        <!-- Botón confirmar -->
+        <button type="button" class="checkout-btn-confirmar" id="btn-confirmar">
+            Confirmar compra
+        </button>
+
+        <!-- Volver -->
+        <a href="index.html" class="checkout-volver">← Volver al catálogo</a>
+
+    </main>
+    <footer>
+        <p>&copy; 2026 TechZone - Tienda de Tecnología</p>
+        <address>Email: contacto@techzone.com | Tel: 0800-123-4567</address>
+    </footer>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Popup Login -->
+    <div class="popup" id="popup-login">
+        <button class="popup-cerrar" id="cerrar-login" aria-label="Cerrar">
+            <i data-lucide="x"></i>
+        </button>
+        <h2>Iniciar sesión</h2>
+        <p>Bienvenido de vuelta a TechZone</p>
+        <form>
+            <div>
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" name="email" placeholder="juan@correo.com" required>
+            </div>
+            <div>
+                <label for="login-password">Contraseña</label>
+                <input type="password" id="login-password" name="password" placeholder="Tu contraseña" required>
+            </div>
+            <button type="submit" class="popup-btn">Iniciar sesión</button>
+        </form>
+        <p class="popup-footer">¿No tenés cuenta? <a href="#" id="ir-registro">Registrate</a></p>
+    </div>
+
+    <!-- Popup Registro -->
+    <div class="popup" id="popup-registro">
+        <button class="popup-cerrar" id="cerrar-registro" aria-label="Cerrar">
+            <i data-lucide="x"></i>
+        </button>
+        <h2>Crear cuenta</h2>
+        <p>Unite a TechZone y empezá a comprar</p>
+        <div>
+            <label for="registro-nombre">Nombre</label>
+            <input type="text" id="registro-nombre" name="nombre" placeholder="Juan" required>
+        </div>
+        <div>
+            <label for="registro-apellido">Apellido</label>
+            <input type="text" id="registro-apellido" name="apellido" placeholder="Pérez" required>
+        </div>
+        <div>
+            <label for="registro-email">Email</label>
+            <input type="email" id="registro-email" name="email" placeholder="juan@correo.com" required>
+        </div>
+        <div>
+            <label for="registro-password">Contraseña</label>
+            <input type="password" id="registro-password" name="password" placeholder="Mínimo 8 caracteres" required minlength="8">
+        </div>
+        <button type="button" class="popup-btn">Crear cuenta</button>
+        <p class="popup-footer">¿Ya tenés cuenta? <a href="#" id="ir-login">Iniciá sesión</a></p>
+    </div>
+
+    <!-- Panel carrito -->
+    <div class="carrito-panel" id="carrito-panel">
+        <div class="carrito-header">
+            <h2>Carrito</h2>
+            <button type="button" id="cerrar-carrito" aria-label="Cerrar carrito">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div class="carrito-items" id="carrito-items">
+            <p class="carrito-vacio">Tu carrito está vacío.</p>
+        </div>
+        <div class="carrito-footer">
+            <div class="carrito-total">
+                <span>Total</span>
+                <span id="carrito-total">$0</span>
+            </div>
+            <button type="button" class="carrito-btn-finalizar">Finalizar compra</button>
+        </div>
+    </div>
+        <!-- Popup confirmación -->
+    <div class="popup" id="popup-confirmacion">
+        <h2>¡Compra confirmada!</h2>
+        <p>Gracias por tu pedido. En breve recibirás un email con los detalles.</p>
+        <button type="button" class="popup-btn" id="btn-ir-inicio">Volver al inicio</button>
+    </div>
+    <script>lucide.createIcons();</script>
+    <script src="js/popups.js"></script>
+    <script src="js/carrito.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+</html>
