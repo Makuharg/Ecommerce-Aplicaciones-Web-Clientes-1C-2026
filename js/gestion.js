@@ -132,6 +132,29 @@ if (gestionForm) {
 }
 
 // ================================
+// VISTAS
+// ================================
+
+function mostrarLista() {
+    document.getElementById('gestion-vista-lista').classList.remove('oculto');
+    document.getElementById('gestion-vista-edicion').classList.add('oculto');
+    document.getElementById('gestion-titulo').textContent = 'Gestión de Productos';
+}
+
+function mostrarEdicion(producto) {
+    document.getElementById('gestion-vista-lista').classList.add('oculto');
+    document.getElementById('gestion-vista-edicion').classList.remove('oculto');
+    document.getElementById('gestion-titulo').textContent = 'Editar Producto';
+
+    document.getElementById('e-nombre').value = producto.nombre;
+    document.getElementById('e-precio').value = producto.precio;
+    document.getElementById('e-categoria').value = producto.categoria;
+    document.getElementById('e-stock').value = producto.stock || 0;
+
+    document.getElementById('gestion-form-editar').dataset.editando = producto.id;
+}
+
+// ================================
 // EVENTOS DE LISTA
 // ================================
 
@@ -149,15 +172,42 @@ function asignarEventosLista() {
             const id = parseInt(boton.dataset.id);
             const producto = productos.find(p => p.id === id);
             if (!producto) return;
-
-            document.getElementById('g-nombre').value = producto.nombre;
-            document.getElementById('g-precio').value = producto.precio;
-            document.getElementById('g-categoria').value = producto.categoria;
-
-            gestionForm.dataset.editando = producto.id;
-
-            document.querySelector('.gestion-agregar').setAttribute('open', '');
-            document.getElementById('g-nombre').focus();
+            mostrarEdicion(producto);
         });
+    });
+}
+
+// ================================
+// GUARDAR EDICIÓN
+// ================================
+
+const formEditar = document.getElementById('gestion-form-editar');
+if (formEditar) {
+    formEditar.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const id = parseInt(formEditar.dataset.editando);
+        const index = productos.findIndex(p => p.id === id);
+
+        productos[index] = {
+            id,
+            nombre: document.getElementById('e-nombre').value,
+            precio: parseInt(document.getElementById('e-precio').value),
+            categoria: document.getElementById('e-categoria').value,
+            stock: parseInt(document.getElementById('e-stock').value)
+        };
+
+        mostrarLista();
+        renderizarLista(productos);
+    });
+}
+
+// ================================
+// CANCELAR EDICIÓN
+// ================================
+
+const btnCancelarEdicion = document.getElementById('btn-cancelar-edicion');
+if (btnCancelarEdicion) {
+    btnCancelarEdicion.addEventListener('click', () => {
+        mostrarLista();
     });
 }

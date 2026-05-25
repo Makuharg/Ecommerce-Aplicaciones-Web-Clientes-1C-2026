@@ -329,100 +329,92 @@
 
     </div>
     <!-- Modal gestión productos -->
-    <div class="popup" id="popup-gestion">
-        <div class="gestion-header">
-            <h2>Gestión de Productos</h2>
-            <button class="popup-cerrar" id="cerrar-gestion" aria-label="Cerrar">
-                <i data-lucide="x"></i>
-            </button>
-        </div>
+<div class="popup" id="popup-gestion">
+    <div class="gestion-header">
+        <h2 id="gestion-titulo">Gestión de Productos</h2>
+        <button class="popup-cerrar" id="cerrar-gestion" aria-label="Cerrar">
+            <i data-lucide="x"></i>
+        </button>
+    </div>
     <div class="gestion-contenido">
 
-    <!-- Formulario agregar producto -->
-    <details class="gestion-agregar">
-        <summary>Agregar nuevo producto</summary>
-        <form class="gestion-form">
-            <div>
-                <label for="g-nombre">Nombre *</label>
-                <input type="text" id="g-nombre" name="nombre" required>
-            </div>
-            <div>
-                <label for="g-precio">Precio ($) *</label>
-                <input type="number" id="g-precio" name="precio" required min="0">
-            </div>
-            <div>
-                <label for="g-categoria">Categoría *</label>
-                <select id="g-categoria" name="categoria" required>
-                    <option value="">Seleccionar</option>
-                    <option value="televisores">Televisores</option>
-                    <option value="celulares">Celulares</option>
-                    <option value="computadoras">Computadoras</option>
-                    <option value="tablets">Tablets</option>
-                </select>
-            </div>
-            <div>
-                <label for="g-descripcion">Descripción *</label>
-                <textarea id="g-descripcion" name="descripcion" required></textarea>
-            </div>
-            <div>
-                <label for="g-stock">Stock</label>
-                <input type="number" id="g-stock" name="stock" min="0" value="0">
-            </div>
-            <button type="submit" class="popup-btn">Guardar producto</button>
-        </form>
-    </details>
+        <!-- Vista lista -->
+        <div id="gestion-vista-lista">
+            <details class="gestion-agregar">
+                <summary>Agregar nuevo producto</summary>
+                <form class="gestion-form" id="gestion-form-agregar">
+                    <div>
+                        <label for="g-nombre">Nombre *</label>
+                        <input type="text" id="g-nombre" name="nombre" required>
+                    </div>
+                    <div>
+                        <label for="g-precio">Precio ($) *</label>
+                        <input type="number" id="g-precio" name="precio" required min="0">
+                    </div>
+                    <div>
+                        <label for="g-categoria">Categoría *</label>
+                        <select id="g-categoria" name="categoria" required>
+                            <option value="">Seleccionar</option>
+                            <option value="televisores">Televisores</option>
+                            <option value="celulares">Celulares</option>
+                            <option value="computadoras">Computadoras</option>
+                            <option value="tablets">Tablets</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="g-descripcion">Descripción *</label>
+                        <textarea id="g-descripcion" name="descripcion" required></textarea>
+                    </div>
+                    <div>
+                        <label for="g-stock">Stock</label>
+                        <input type="number" id="g-stock" name="stock" min="0" value="0">
+                    </div>
+                    <button type="submit" class="popup-btn">Guardar producto</button>
+                </form>
+            </details>
 
-    <!-- Buscador -->
-    <div class="gestion-buscar">
-        <input type="search" id="gestion-buscador" placeholder="Buscar producto...">
-    </div>
+            <div class="gestion-buscar">
+                <input type="search" id="gestion-buscador" placeholder="Buscar producto...">
+            </div>
 
-    <!-- Lista de productos -->
-    <div class="gestion-lista" id="gestion-lista">
-        <div class="gestion-item">
-            <div class="gestion-item-info">
-                <p class="gestion-item-nombre">Smart TV 55" 4K Ultra HD</p>
-                <p class="gestion-item-precio">$450.000</p>
-            </div>
-            <div class="gestion-item-acciones">
-                <button type="button" class="gestion-btn-editar">
-                    <i data-lucide="pencil"></i>
-                </button>
-                <button type="button" class="gestion-btn-eliminar">
-                    <i data-lucide="trash-2"></i>
-                </button>
-            </div>
+            <div class="gestion-lista" id="gestion-lista"></div>
         </div>
-        <div class="gestion-item">
-            <div class="gestion-item-info">
-                <p class="gestion-item-nombre">Laptop Gaming 17"</p>
-                <p class="gestion-item-precio">$2.100.000</p>
-            </div>
-            <div class="gestion-item-acciones">
-                <button type="button" class="gestion-btn-editar">
-                    <i data-lucide="pencil"></i>
-                </button>
-                <button type="button" class="gestion-btn-eliminar">
-                    <i data-lucide="trash-2"></i>
-                </button>
-            </div>
+
+        <!-- Vista edición -->
+        <div id="gestion-vista-edicion" class="oculto">
+            <form class="gestion-form" id="gestion-form-editar">
+                <div>
+                    <label for="e-nombre">Nombre *</label>
+                    <input type="text" id="e-nombre" name="nombre" required>
+                </div>
+                <div>
+                    <label for="e-precio">Precio ($) *</label>
+                    <input type="number" id="e-precio" name="precio" required min="0">
+                </div>
+                <div>
+                    <label for="e-categoria">Categoría *</label>
+                    <select id="e-categoria" name="categoria" required>
+                        <option value="">Seleccionar</option>
+                        <option value="televisores">Televisores</option>
+                        <option value="celulares">Celulares</option>
+                        <option value="computadoras">Computadoras</option>
+                        <option value="tablets">Tablets</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="e-descripcion">Descripción *</label>
+                    <textarea id="e-descripcion" name="descripcion" required></textarea>
+                </div>
+                <div>
+                    <label for="e-stock">Stock</label>
+                    <input type="number" id="e-stock" name="stock" min="0" value="0">
+                </div>
+                <button type="submit" class="popup-btn">Guardar cambios</button>
+                <button type="button" class="gestion-btn-cancelar" id="btn-cancelar-edicion">Cancelar</button>
+            </form>
         </div>
-        <div class="gestion-item">
-            <div class="gestion-item-info">
-                <p class="gestion-item-nombre">Smartphone Premium 512GB</p>
-                <p class="gestion-item-precio">$980.000</p>
-            </div>
-            <div class="gestion-item-acciones">
-                <button type="button" class="gestion-btn-editar">
-                    <i data-lucide="pencil"></i>
-                </button>
-                <button type="button" class="gestion-btn-eliminar">
-                    <i data-lucide="trash-2"></i>
-                </button>
-            </div>
-        </div>
+
     </div>
-</div>
 </div>
 <script>lucide.createIcons();</script>
 <script src="js/popups.js"></script>
