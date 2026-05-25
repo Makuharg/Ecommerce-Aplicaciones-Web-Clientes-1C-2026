@@ -352,13 +352,18 @@
     width: 100%;
     padding: 12px;
     background-color: #1a1a1a;
-    color: #ffffff;
     border: none;
     border-radius: 6px;
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s;
+}
+
+.carrito-btn-finalizar a {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
 }
 
 .carrito-btn-finalizar:hover {
