@@ -35,6 +35,7 @@ let productos = [
 if (btnGestionModal) {
     btnGestionModal.addEventListener('click', (e) => {
         e.stopPropagation();
+        document.getElementById('popup-exito').classList.remove('activo');
         popupGestion.classList.add('activo');
         overlay.classList.add('activo');
         document.body.style.overflow = 'hidden';
@@ -106,30 +107,63 @@ if (gestionBuscador) {
 // ================================
 
 if (gestionForm) {
-    gestionForm.addEventListener('submit', (e) => {
+    gestionForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const nombre = document.getElementById('g-nombre').value;
         const precio = parseInt(document.getElementById('g-precio').value);
         const categoria = document.getElementById('g-categoria').value;
+        const descripcion = document.getElementById('g-descripcion').value;
         const stock = parseInt(document.getElementById('g-stock').value);
 
-        const idEditando = gestionForm.dataset.editando;
+        const categoriaMap = {
+            'televisores': 1,
+            'celulares': 2,
+            'computadoras': 3,
+            'tablets': 4
+        };
 
-        if (idEditando) {
-            const index = productos.findIndex(p => p.id === parseInt(idEditando));
-            productos[index] = { id: parseInt(idEditando), nombre, precio, categoria, stock };
-            delete gestionForm.dataset.editando;
+        const imagen = document.getElementById('g-imagen').value;
+
+        const resultado = await agregarProducto(
+            nombre,
+            descripcion,
+            precio,
+            stock,
+            imagen,
+            categoriaMap[categoria]
+        );
+
+        if (resultado) {
+            const nuevoProducto = resultado[0];
+            productos.push({
+                id: nuevoProducto.id,
+                nombre: nuevoProducto.nombre,
+                precio: nuevoProducto.precio,
+                categoria,
+                stock: nuevoProducto.stock
+            });
+
+        const popupExito = document.getElementById('popup-exito');
+        const overlayExito = document.getElementById('overlay-exito');
+        popupExito.classList.add('activo');
+        overlayExito.classList.add('activo');
+
+        setTimeout(() => {
+            popupExito.classList.remove('activo');
+            overlayExito.classList.remove('activo');
+        }, 3500);
+
+            gestionForm.reset();
+            document.querySelector('.gestion-agregar').removeAttribute('open');
+            renderizarLista(productos);
         } else {
-            const nuevoId = productos.length > 0 ? productos[productos.length - 1].id + 1 : 1;
-            productos.push({ id: nuevoId, nombre, precio, categoria, stock });
+            alert('Error al guardar el producto. Intentá de nuevo.');
         }
-
-        gestionForm.reset();
-        document.querySelector('.gestion-agregar').removeAttribute('open');
-        renderizarLista(productos);
     });
 }
+
+
 
 // ================================
 // VISTAS
