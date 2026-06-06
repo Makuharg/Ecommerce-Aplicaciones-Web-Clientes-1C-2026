@@ -369,6 +369,10 @@
                         <label for="g-stock">Stock</label>
                         <input type="number" id="g-stock" name="stock" min="0" value="0">
                     </div>
+                    <div>
+                        <label for="g-imagen">URL de imagen</label>
+                        <input type="url" id="g-imagen" name="imagen" placeholder="https://...">
+                    </div>
                     <button type="submit" class="popup-btn">Guardar producto</button>
                 </form>
             </details>
@@ -413,9 +417,15 @@
                 <button type="button" class="gestion-btn-cancelar" id="btn-cancelar-edicion">Cancelar</button>
             </form>
         </div>
-
     </div>
 </div>
+
+        <div class="popup" id="popup-exito">
+            <h2>✅ ¡Éxito!</h2>
+            <p>Producto agregado correctamente.</p>
+        </div>
+        <div class="overlay" id="overlay-exito"></div>
+        
 <script>lucide.createIcons();</script>
 <script src="js/popups.js"></script>
 <script src="js/cantidad.js"></script>
@@ -424,5 +434,7 @@
 <script src="js/buscador.js"></script>
 <script src="js/auth.js"></script>
 <script src="js/gestion.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/productos-api.js"></script>
 </body>
 </html>

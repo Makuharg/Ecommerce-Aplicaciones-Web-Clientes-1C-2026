@@ -670,6 +670,14 @@
     background-color: #f5f5f5;
 }
 
+#overlay-exito {
+    z-index: 3500;
+}
+
+#popup-exito {
+    z-index: 4000;
+}
+
 /* ================================
    RESPONSIVE
 ================================ */
