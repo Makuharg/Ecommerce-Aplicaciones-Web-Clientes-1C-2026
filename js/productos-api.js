@@ -1,4 +1,37 @@
 // ================================
+// OBTENER PRODUCTOS
+// ================================
+
+const categoriaMap = {
+    1: 'televisores',
+    2: 'celulares',
+    3: 'computadoras',
+    4: 'tablets'
+};
+
+async function obtenerProductos() {
+    try {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/productos?select=*`, {
+            method: 'GET',
+            headers: HEADERS
+        });
+
+        if (!response.ok) {
+            const error = await response.json();
+            console.error('Error al obtener productos:', error);
+            return null;
+        }
+
+        const data = await response.json();
+        return data;
+
+    } catch (error) {
+        console.error('Error de conexión:', error);
+        return null;
+    }
+}
+
+// ================================
 // AGREGAR PRODUCTO
 // ================================
 

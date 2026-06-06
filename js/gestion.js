@@ -13,32 +13,32 @@ const gestionForm = document.querySelector('.gestion-form');
 // ESTADO
 // ================================
 
-let productos = [
-    { id: 1, nombre: 'Smart TV 55" 4K Ultra HD', precio: 450000, categoria: 'televisores' },
-    { id: 2, nombre: 'Smart TV 65" OLED', precio: 890000, categoria: 'televisores' },
-    { id: 3, nombre: 'TV 50" QLED', precio: 320000, categoria: 'televisores' },
-    { id: 4, nombre: 'TV 32" HD Básico', precio: 120000, categoria: 'televisores' },
-    { id: 5, nombre: 'Smartphone Premium 512GB', precio: 980000, categoria: 'celulares' },
-    { id: 6, nombre: 'Smartphone Gama Media 256GB', precio: 450000, categoria: 'celulares' },
-    { id: 7, nombre: 'Celular Entrada 64GB', precio: 180000, categoria: 'celulares' },
-    { id: 8, nombre: 'Laptop Gaming 17"', precio: 2100000, categoria: 'computadoras' },
-    { id: 9, nombre: 'Ultrabook 13"', precio: 1200000, categoria: 'computadoras' },
-    { id: 10, nombre: 'Computadora de Escritorio', precio: 950000, categoria: 'computadoras' },
-    { id: 11, nombre: 'Tablet Pro 12"', precio: 750000, categoria: 'tablets' },
-    { id: 12, nombre: 'Tablet 10" WiFi', precio: 350000, categoria: 'tablets' }
-];
+let productos = [];
 
 // ================================
 // ABRIR Y CERRAR
 // ================================
 
 if (btnGestionModal) {
-    btnGestionModal.addEventListener('click', (e) => {
+    btnGestionModal.addEventListener('click', async (e) => {
         e.stopPropagation();
         document.getElementById('popup-exito').classList.remove('activo');
         popupGestion.classList.add('activo');
         overlay.classList.add('activo');
         document.body.style.overflow = 'hidden';
+
+        const data = await obtenerProductos();
+        if (data) {
+            productos = data.map(p => ({
+                id: p.id,
+                nombre: p.nombre,
+                precio: p.precio,
+                categoria: categoriaMap[p.categoria_id] || 'otros',
+                stock: p.stock,
+                imagen: p.imagen
+            }));
+        }
+
         renderizarLista(productos);
     });
 }

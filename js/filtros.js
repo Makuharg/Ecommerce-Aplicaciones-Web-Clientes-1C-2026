@@ -1,11 +1,4 @@
 // ================================
-// ELEMENTOS
-// ================================
-
-const botonesCategoria = document.querySelectorAll('.btn-categoria');
-const todasLasCards = document.querySelectorAll('.productos-grid article');
-
-// ================================
 // ESTADO
 // ================================
 
@@ -17,35 +10,34 @@ let busquedaActiva = '';
 // ================================
 
 function aplicarFiltros() {
-    todasLasCards.forEach(card => {
+    const cards = document.querySelectorAll('.productos-grid article');
+    cards.forEach(card => {
         const nombre = card.querySelector('h4').textContent.toLowerCase();
         const categoria = card.dataset.categoria;
 
         const coincideCategoria = categoriaActiva === 'todos' || categoria === categoriaActiva;
         const coincideBusqueda = nombre.includes(busquedaActiva);
 
-        if (coincideCategoria && coincideBusqueda) {
-            card.style.display = 'flex';
-        } else {
-            card.style.display = 'none';
-        }
+        card.style.display = (coincideCategoria && coincideBusqueda) ? 'flex' : 'none';
     });
 }
 
 function marcarActivo(botonActivo) {
-    botonesCategoria.forEach(boton => boton.classList.remove('activo'));
+    document.querySelectorAll('.btn-categoria').forEach(boton => boton.classList.remove('activo'));
     botonActivo.classList.add('activo');
 }
 
 // ================================
-// EVENTOS CATEGORÍAS
+// INICIALIZAR FILTROS
 // ================================
 
-botonesCategoria.forEach(boton => {
-    boton.addEventListener('click', (e) => {
-        e.preventDefault();
-        categoriaActiva = boton.dataset.categoria;
-        marcarActivo(boton);
-        aplicarFiltros();
+function inicializarFiltros() {
+    document.querySelectorAll('.btn-categoria').forEach(boton => {
+        boton.addEventListener('click', (e) => {
+            e.preventDefault();
+            categoriaActiva = boton.dataset.categoria;
+            marcarActivo(boton);
+            aplicarFiltros();
+        });
     });
-});
+}
