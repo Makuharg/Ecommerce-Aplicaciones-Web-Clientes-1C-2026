@@ -8,7 +8,6 @@ const cerrarCarrito = document.getElementById('cerrar-carrito');
 const carritoItems = document.getElementById('carrito-items');
 const carritoTotal = document.getElementById('carrito-total');
 const cartCount = document.getElementById('cart-count');
-const botonesAgregarCarrito = document.querySelectorAll('.btn-agregar-carrito');
 
 // ================================
 // ESTADO DEL CARRITO
@@ -44,38 +43,35 @@ overlay.addEventListener('click', () => {
 // ================================
 // AGREGAR PRODUCTO AL CARRITO
 // ================================
+function inicializarCarrito() {
+    const botonesAgregarCarrito = document.querySelectorAll('.btn-agregar-carrito');
+    
+    botonesAgregarCarrito.forEach(boton => {
+        boton.addEventListener('click', () => {
+            const card = boton.closest('article');
+            const nombre = card.querySelector('h4').textContent;
+            const precio = card.querySelector('strong').textContent;
+            const cantidadSpan = card.querySelector('.cantidad');
+            const cantidad = parseInt(cantidadSpan.textContent);
+            const imagen = card.querySelector('img').src;
 
-botonesAgregarCarrito.forEach(boton => {
-    boton.addEventListener('click', () => {
-        const card = boton.closest('article');
-        const nombre = card.querySelector('h4').textContent;
-        const precio = card.querySelector('strong').textContent;
-        const cantidadSpan = card.querySelector('.cantidad');
-        const cantidad = parseInt(cantidadSpan.textContent);
-        const imagen = card.querySelector('img').src;
+            if (cantidad === 0) return;
 
-        if (cantidad === 0) return;
+            const precioNumero = parseInt(precio.replace(/\$|\.|\./g, ''));
 
-        const precioNumero = parseInt(precio.replace(/\$|\.|\./g, ''));
+            const productoExistente = carrito.find(p => p.nombre === nombre);
 
-        const productoExistente = carrito.find(p => p.nombre === nombre);
+            if (productoExistente) {
+                productoExistente.cantidad += cantidad;
+            } else {
+                carrito.push({ nombre, precio: precioNumero, cantidad, imagen });
+            }
 
-        if (productoExistente) {
-            productoExistente.cantidad += cantidad;
-        } else {
-            carrito.push({
-                nombre,
-                precio: precioNumero,
-                cantidad,
-                imagen
-            });
-        }
-
-        cantidadSpan.textContent = '0';
-        renderizarCarrito();
+            cantidadSpan.textContent = '0';
+            renderizarCarrito();
+        });
     });
-});
-
+}
 // ================================
 // RENDERIZAR CARRITO
 // ================================
