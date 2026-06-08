@@ -419,14 +419,36 @@
         </div>
     </div>
 </div>
-
+        <div class="overlay" id="overlay-exito"></div>
         <div class="popup" id="popup-exito">
             <h2>✅ ¡Éxito!</h2>
             <p>Producto agregado correctamente.</p>
         </div>
-        <div class="overlay" id="overlay-exito"></div>
+
+        <div class="overlay" id="overlay-gestion-interno"></div>
+        <!-- Popup confirmar eliminar -->
+        <div class="popup" id="popup-confirmar-eliminar">
+            <h2>⚠️ Eliminar producto</h2>
+            <p>¿Estás seguro que querés eliminar este producto? Esta acción no se puede deshacer.</p>
+            <button type="button" class="popup-btn" id="btn-confirmar-eliminar">Sí, eliminar</button>
+            <button type="button" class="gestion-btn-cancelar" id="btn-cancelar-eliminar">Cancelar</button>
+        </div>
+        <!-- Popup éxito eliminar -->
+        <div class="popup" id="popup-exito-eliminar">
+            <h2>🗑️ ¡Éxito!</h2>
+            <p>Producto eliminado correctamente.</p>
+        </div>
+
+        <!-- Popup éxito edición -->
+        <div class="popup" id="popup-exito-edicion">
+            <h2>✅ ¡Éxito!</h2>
+            <p>Producto actualizado correctamente.</p>
+        </div>
         
 <script>lucide.createIcons();</script>
+<script src="js/supabase.js"></script>
+<script src="js/productos-api.js"></script>
+<script src="js/catalogo.js"></script>
 <script src="js/popups.js"></script>
 <script src="js/cantidad.js"></script>
 <script src="js/carrito.js"></script>
@@ -434,8 +456,5 @@
 <script src="js/buscador.js"></script>
 <script src="js/auth.js"></script>
 <script src="js/gestion.js"></script>
-<script src="js/supabase.js"></script>
-<script src="js/productos-api.js"></script>
-<script src="js/catalogo.js"></script>
 </body>
 </html>

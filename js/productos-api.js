@@ -9,6 +9,10 @@ const categoriaMap = {
     4: 'tablets'
 };
 
+// ================================
+// GET PRODUCTOS(VER PRODUCTOS)
+// ================================
+
 async function obtenerProductos() {
     try {
         const response = await fetch(`${SUPABASE_URL}/rest/v1/productos?select=*`, {
@@ -32,7 +36,7 @@ async function obtenerProductos() {
 }
 
 // ================================
-// AGREGAR PRODUCTO
+// POST PRODUCTOS(AGREGAR PRODUCTOS)
 // ================================
 
 async function agregarProducto(nombre, descripcion, precio, stock, imagen, categoriaId) {
@@ -61,6 +65,68 @@ async function agregarProducto(nombre, descripcion, precio, stock, imagen, categ
 
         const data = await response.json();
         console.log('Producto agregado:', data);
+        return data;
+
+    } catch (error) {
+        console.error('Error de conexión:', error);
+        return null;
+    }
+}
+
+// ================================
+// DELETE PRODUCTOS(ELIMINAR PRODUCTO)
+// ================================
+
+async function eliminarProducto(id) {
+    try {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/productos?id=eq.${id}`, {
+            method: 'DELETE',
+            headers: HEADERS
+        });
+
+        if (!response.ok) {
+            const error = await response.json();
+            console.error('Error al eliminar producto:', error);
+            return false;
+        }
+
+        return true;
+
+    } catch (error) {
+        console.error('Error de conexión:', error);
+        return false;
+    }
+}
+
+// ================================
+// PATCH PRODUCTOS(ACTUALIZAR PRODUCTO)
+// ================================
+
+async function actualizarProducto(id, nombre, descripcion, precio, stock, imagen, categoriaId) {
+    try {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/productos?id=eq.${id}`, {
+            method: 'PATCH',
+            headers: {
+                ...HEADERS,
+                'Prefer': 'return=representation'
+            },
+            body: JSON.stringify({
+                nombre,
+                descripcion,
+                precio,
+                stock,
+                imagen,
+                categoria_id: categoriaId
+            })
+        });
+
+        if (!response.ok) {
+            const error = await response.json();
+            console.error('Error al actualizar producto:', error);
+            return null;
+        }
+
+        const data = await response.json();
         return data;
 
     } catch (error) {
