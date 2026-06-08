@@ -678,6 +678,15 @@
     z-index: 4000;
 }
 
+#overlay-gestion-interno {
+    z-index: 3600;
+}
+
+#popup-confirmar-eliminar,
+#popup-exito-edicion, #popup-exito-eliminar {
+    z-index: 4100;
+}
+
 /* ================================
    RESPONSIVE
 ================================ */

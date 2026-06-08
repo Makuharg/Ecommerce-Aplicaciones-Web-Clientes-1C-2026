@@ -2,13 +2,6 @@
 // RENDERIZAR CARDS
 // ================================
 
-const categoriaMap = {
-    1: 'televisores',
-    2: 'celulares',
-    3: 'computadoras',
-    4: 'tablets'
-};
-
 function crearCard(producto) {
     const article = document.createElement('article');
     article.dataset.categoria = categoriaMap[producto.categoria_id] || 'otros';
