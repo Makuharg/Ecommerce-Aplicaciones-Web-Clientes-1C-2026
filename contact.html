@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="css/popups.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
     <header>
@@ -108,30 +109,32 @@
         </form>
         <p class="popup-footer">¿No tenés cuenta? <a href="#" id="ir-registro">Registrate</a></p>
     </div>
-        <!-- Popup Registro -->
+    <!-- Popup Registro -->
     <div class="popup" id="popup-registro">
         <button class="popup-cerrar" id="cerrar-registro" aria-label="Cerrar">
             <i data-lucide="x"></i>
         </button>
         <h2>Crear cuenta</h2>
         <p>Unite a TechZone y empezá a comprar</p>
-        <div>
-            <label for="registro-nombre">Nombre</label>
-            <input type="text" id="registro-nombre" name="nombre" placeholder="Juan" required>
-        </div>
-        <div>
-            <label for="registro-apellido">Apellido</label>
-            <input type="text" id="registro-apellido" name="apellido" placeholder="Pérez" required>
-        </div>
-        <div>
-            <label for="registro-email">Email</label>
-            <input type="email" id="registro-email" name="email" placeholder="juan@correo.com" required>
-        </div>
-        <div>
-            <label for="registro-password">Contraseña</label>
-            <input type="password" id="registro-password" name="password" placeholder="Mínimo 8 caracteres" required minlength="8">
-        </div>
-        <button type="button" class="popup-btn">Crear cuenta</button>
+        <form id="form-registro">
+            <div>
+                <label for="registro-nombre">Nombre</label>
+                <input type="text" id="registro-nombre" name="nombre" placeholder="Juan" required>
+            </div>
+            <div>
+                <label for="registro-apellido">Apellido</label>
+                <input type="text" id="registro-apellido" name="apellido" placeholder="Pérez" required>
+            </div>
+            <div>
+                <label for="registro-email">Email</label>
+                <input type="email" id="registro-email" name="email" placeholder="juan@correo.com" required>
+            </div>
+            <div>
+                <label for="registro-password">Contraseña</label>
+                <input type="password" id="registro-password" name="password" placeholder="Mínimo 8 caracteres" required minlength="8">
+            </div>
+            <button type="submit" class="popup-btn">Crear cuenta</button>
+        </form>
         <p class="popup-footer">¿Ya tenés cuenta? <a href="#" id="ir-login">Iniciá sesión</a></p>
     </div>
         <!-- Panel carrito -->
@@ -246,6 +249,8 @@
     </div>
 </div>
 <script>lucide.createIcons();</script>
+<script src="js/supabase.js"></script>
+<script src="js/auth-supabase.js"></script>
 <script src="js/popups.js"></script>
 <script src="js/carrito.js"></script>
 <script src="js/auth.js"></script>
