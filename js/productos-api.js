@@ -15,9 +15,10 @@ const categoriaMap = {
 
 async function obtenerProductos() {
     try {
+        const headers = await getHeaders();
         const response = await fetch(`${SUPABASE_URL}/rest/v1/productos?select=*`, {
             method: 'GET',
-            headers: HEADERS
+            headers
         });
 
         if (!response.ok) {
@@ -26,8 +27,7 @@ async function obtenerProductos() {
             return null;
         }
 
-        const data = await response.json();
-        return data;
+        return await response.json();
 
     } catch (error) {
         console.error('Error de conexión:', error);
@@ -41,10 +41,11 @@ async function obtenerProductos() {
 
 async function agregarProducto(nombre, descripcion, precio, stock, imagen, categoriaId) {
     try {
+        const headers = await getHeaders();
         const response = await fetch(`${SUPABASE_URL}/rest/v1/productos`, {
             method: 'POST',
             headers: {
-                ...HEADERS,
+                ...headers,
                 'Prefer': 'return=representation'
             },
             body: JSON.stringify({
@@ -63,25 +64,23 @@ async function agregarProducto(nombre, descripcion, precio, stock, imagen, categ
             return null;
         }
 
-        const data = await response.json();
-        console.log('Producto agregado:', data);
-        return data;
+        return await response.json();
 
     } catch (error) {
         console.error('Error de conexión:', error);
         return null;
     }
 }
-
 // ================================
 // DELETE PRODUCTOS(ELIMINAR PRODUCTO)
 // ================================
 
 async function eliminarProducto(id) {
     try {
+        const headers = await getHeaders();
         const response = await fetch(`${SUPABASE_URL}/rest/v1/productos?id=eq.${id}`, {
             method: 'DELETE',
-            headers: HEADERS
+            headers
         });
 
         if (!response.ok) {
@@ -104,10 +103,11 @@ async function eliminarProducto(id) {
 
 async function actualizarProducto(id, nombre, descripcion, precio, stock, imagen, categoriaId) {
     try {
+        const headers = await getHeaders();
         const response = await fetch(`${SUPABASE_URL}/rest/v1/productos?id=eq.${id}`, {
             method: 'PATCH',
             headers: {
-                ...HEADERS,
+                ...headers,
                 'Prefer': 'return=representation'
             },
             body: JSON.stringify({
@@ -126,8 +126,7 @@ async function actualizarProducto(id, nombre, descripcion, precio, stock, imagen
             return null;
         }
 
-        const data = await response.json();
-        return data;
+        return await response.json();
 
     } catch (error) {
         console.error('Error de conexión:', error);
