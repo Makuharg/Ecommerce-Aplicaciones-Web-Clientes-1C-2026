@@ -17,7 +17,6 @@
         <a href="index.html">
             <h1>TechZone</h1>
         </a>
-
         <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
@@ -26,9 +25,12 @@
                 <li><a href="contact.html">Contacto</a></li>
             </ul>
         </nav>
-
         <div class="header-acciones">
             <input type="search" id="buscador" name="buscador" placeholder="Buscar productos...">
+            <button type="button" id="btn-gestion" class="btn-gestion oculto">
+                <i data-lucide="settings"></i>
+                Gestión productos
+            </button>
             <div class="usuario">
                 <button type="button" id="btn-usuario" aria-label="Cuenta de usuario">
                     <i data-lucide="user"></i>
@@ -45,22 +47,16 @@
             </button>
         </div>
     </header>
-    <main class="detalle-section">
 
-        <!-- Imagen -->
+    <main class="detalle-section">
         <div class="detalle-imagen">
             <img src="img/placeholder.jpg" alt="Imagen del producto" id="producto-imagen">
         </div>
-
-        <!-- Info -->
         <div class="detalle-info">
-
             <p class="detalle-categoria" id="producto-categoria">Categoría</p>
             <h2 id="producto-nombre">Nombre del Producto</h2>
             <p class="detalle-precio" id="producto-precio">$000.000</p>
             <p class="detalle-descripcion" id="producto-descripcion">Descripción del producto.</p>
-
-            <!-- Especificaciones técnicas -->
             <div class="detalle-specs">
                 <h3>Especificaciones técnicas</h3>
                 <ul id="producto-specs">
@@ -69,26 +65,19 @@
                     <li><span>Especificación</span><span>Valor</span></li>
                 </ul>
             </div>
-
-            <!-- Selector de cantidad -->
             <div class="detalle-cantidad">
                 <button type="button" id="btn-restar">-</button>
                 <span id="cantidad">0</span>
                 <button type="button" id="btn-sumar">+</button>
             </div>
-
-            <!-- Botón agregar al carrito -->
             <button type="button" class="detalle-btn-carrito" id="btn-agregar-carrito">
                 <i data-lucide="shopping-cart"></i>
                 Agregar al carrito
             </button>
-
-            <!-- Botón volver -->
             <a href="index.html#productos" class="detalle-volver">← Volver al catálogo</a>
-
         </div>
-
     </main>
+
     <footer>
         <p>&copy; 2026 TechZone - Tienda de Tecnología</p>
         <address>Email: contacto@techzone.com | Tel: 0800-123-4567</address>
@@ -118,7 +107,7 @@
         <p class="popup-footer">¿No tenés cuenta? <a href="#" id="ir-registro">Registrate</a></p>
     </div>
 
-        <!-- Popup Registro -->
+    <!-- Popup Registro -->
     <div class="popup" id="popup-registro">
         <button class="popup-cerrar" id="cerrar-registro" aria-label="Cerrar">
             <i data-lucide="x"></i>
@@ -146,53 +135,93 @@
         </form>
         <p class="popup-footer">¿Ya tenés cuenta? <a href="#" id="ir-login">Iniciá sesión</a></p>
     </div>
-            <!-- Panel carrito -->
-    <div class="carrito-panel" id="carrito-panel">
 
+    <!-- Panel carrito -->
+    <div class="carrito-panel" id="carrito-panel">
         <div class="carrito-header">
             <h2>Carrito</h2>
             <button type="button" id="cerrar-carrito" aria-label="Cerrar carrito">
                 <i data-lucide="x"></i>
             </button>
         </div>
-
         <div class="carrito-items" id="carrito-items">
             <p class="carrito-vacio">Tu carrito está vacío.</p>
         </div>
-
         <div class="carrito-footer">
             <div class="carrito-total">
                 <span>Total</span>
                 <span id="carrito-total">$0</span>
             </div>
-            <button type="button" class="carrito-btn-finalizar"><a href="/checkout.html">Finalizar compra</a></button>
+            <button type="button" class="carrito-btn-finalizar">
+                <a href="checkout.html">Finalizar compra</a>
+            </button>
         </div>
-        <!-- Modal gestión productos -->
-<div class="popup" id="popup-gestion">
-    <div class="gestion-header">
-        <h2 id="gestion-titulo">Gestión de Productos</h2>
-        <button class="popup-cerrar" id="cerrar-gestion" aria-label="Cerrar">
-            <i data-lucide="x"></i>
-        </button>
     </div>
-    <div class="gestion-contenido">
 
-        <!-- Vista lista -->
-        <div id="gestion-vista-lista">
-            <details class="gestion-agregar">
-                <summary>Agregar nuevo producto</summary>
-                <form class="gestion-form" id="gestion-form-agregar">
+    <!-- Modal gestión productos -->
+    <div class="popup" id="popup-gestion">
+        <div class="gestion-header">
+            <h2 id="gestion-titulo">Gestión de Productos</h2>
+            <button class="popup-cerrar" id="cerrar-gestion" aria-label="Cerrar">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div class="gestion-contenido">
+            <div id="gestion-vista-lista">
+                <details class="gestion-agregar">
+                    <summary>Agregar nuevo producto</summary>
+                    <form class="gestion-form" id="gestion-form-agregar">
+                        <div>
+                            <label for="g-nombre">Nombre *</label>
+                            <input type="text" id="g-nombre" name="nombre" required>
+                        </div>
+                        <div>
+                            <label for="g-precio">Precio ($) *</label>
+                            <input type="number" id="g-precio" name="precio" required min="0">
+                        </div>
+                        <div>
+                            <label for="g-categoria">Categoría *</label>
+                            <select id="g-categoria" name="categoria" required>
+                                <option value="">Seleccionar</option>
+                                <option value="televisores">Televisores</option>
+                                <option value="celulares">Celulares</option>
+                                <option value="computadoras">Computadoras</option>
+                                <option value="tablets">Tablets</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="g-descripcion">Descripción *</label>
+                            <textarea id="g-descripcion" name="descripcion" required></textarea>
+                        </div>
+                        <div>
+                            <label for="g-stock">Stock</label>
+                            <input type="number" id="g-stock" name="stock" min="0" value="0">
+                        </div>
+                        <div>
+                            <label for="g-imagen">URL de imagen</label>
+                            <input type="url" id="g-imagen" name="imagen" placeholder="https://...">
+                        </div>
+                        <button type="submit" class="popup-btn">Guardar producto</button>
+                    </form>
+                </details>
+                <div class="gestion-buscar">
+                    <input type="search" id="gestion-buscador" placeholder="Buscar producto...">
+                </div>
+                <div class="gestion-lista" id="gestion-lista"></div>
+            </div>
+            <div id="gestion-vista-edicion" class="oculto">
+                <form class="gestion-form" id="gestion-form-editar">
                     <div>
-                        <label for="g-nombre">Nombre *</label>
-                        <input type="text" id="g-nombre" name="nombre" required>
+                        <label for="e-nombre">Nombre *</label>
+                        <input type="text" id="e-nombre" name="nombre" required>
                     </div>
                     <div>
-                        <label for="g-precio">Precio ($) *</label>
-                        <input type="number" id="g-precio" name="precio" required min="0">
+                        <label for="e-precio">Precio ($) *</label>
+                        <input type="number" id="e-precio" name="precio" required min="0">
                     </div>
                     <div>
-                        <label for="g-categoria">Categoría *</label>
-                        <select id="g-categoria" name="categoria" required>
+                        <label for="e-categoria">Categoría *</label>
+                        <select id="e-categoria" name="categoria" required>
                             <option value="">Seleccionar</option>
                             <option value="televisores">Televisores</option>
                             <option value="celulares">Celulares</option>
@@ -201,60 +230,44 @@
                         </select>
                     </div>
                     <div>
-                        <label for="g-descripcion">Descripción *</label>
-                        <textarea id="g-descripcion" name="descripcion" required></textarea>
+                        <label for="e-descripcion">Descripción *</label>
+                        <textarea id="e-descripcion" name="descripcion" required></textarea>
                     </div>
                     <div>
-                        <label for="g-stock">Stock</label>
-                        <input type="number" id="g-stock" name="stock" min="0" value="0">
+                        <label for="e-stock">Stock</label>
+                        <input type="number" id="e-stock" name="stock" min="0" value="0">
                     </div>
-                    <button type="submit" class="popup-btn">Guardar producto</button>
+                    <button type="submit" class="popup-btn">Guardar cambios</button>
+                    <button type="button" class="gestion-btn-cancelar" id="btn-cancelar-edicion">Cancelar</button>
                 </form>
-            </details>
-
-            <div class="gestion-buscar">
-                <input type="search" id="gestion-buscador" placeholder="Buscar producto...">
             </div>
-
-            <div class="gestion-lista" id="gestion-lista"></div>
         </div>
-
-        <!-- Vista edición -->
-        <div id="gestion-vista-edicion" class="oculto">
-            <form class="gestion-form" id="gestion-form-editar">
-                <div>
-                    <label for="e-nombre">Nombre *</label>
-                    <input type="text" id="e-nombre" name="nombre" required>
-                </div>
-                <div>
-                    <label for="e-precio">Precio ($) *</label>
-                    <input type="number" id="e-precio" name="precio" required min="0">
-                </div>
-                <div>
-                    <label for="e-categoria">Categoría *</label>
-                    <select id="e-categoria" name="categoria" required>
-                        <option value="">Seleccionar</option>
-                        <option value="televisores">Televisores</option>
-                        <option value="celulares">Celulares</option>
-                        <option value="computadoras">Computadoras</option>
-                        <option value="tablets">Tablets</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="e-descripcion">Descripción *</label>
-                    <textarea id="e-descripcion" name="descripcion" required></textarea>
-                </div>
-                <div>
-                    <label for="e-stock">Stock</label>
-                    <input type="number" id="e-stock" name="stock" min="0" value="0">
-                </div>
-                <button type="submit" class="popup-btn">Guardar cambios</button>
-                <button type="button" class="gestion-btn-cancelar" id="btn-cancelar-edicion">Cancelar</button>
-            </form>
-        </div>
-
     </div>
-</div>
+
+    <div class="overlay" id="overlay-exito"></div>
+    <div class="popup" id="popup-exito">
+        <h2>✅ ¡Éxito!</h2>
+        <p>Producto agregado correctamente.</p>
+    </div>
+
+    <div class="overlay" id="overlay-gestion-interno"></div>
+    <div class="popup" id="popup-confirmar-eliminar">
+        <h2>⚠️ Eliminar producto</h2>
+        <p>¿Estás seguro que querés eliminar este producto? Esta acción no se puede deshacer.</p>
+        <button type="button" class="popup-btn" id="btn-confirmar-eliminar">Sí, eliminar</button>
+        <button type="button" class="gestion-btn-cancelar" id="btn-cancelar-eliminar">Cancelar</button>
+    </div>
+
+    <div class="popup" id="popup-exito-eliminar">
+        <h2>🗑️ ¡Éxito!</h2>
+        <p>Producto eliminado correctamente.</p>
+    </div>
+
+    <div class="popup" id="popup-exito-edicion">
+        <h2>✅ ¡Éxito!</h2>
+        <p>Producto actualizado correctamente.</p>
+    </div>
+
     <script>lucide.createIcons();</script>
     <script src="js/supabase.js"></script>
     <script src="js/productos-api.js"></script>
@@ -262,6 +275,7 @@
     <script src="js/popups.js"></script>
     <script src="js/carrito.js"></script>
     <script src="js/auth.js"></script>
+    <script src="js/gestion.js"></script>
     <script src="js/product-detail.js"></script>
     <script src="js/checkout.js"></script>
 </body>
