@@ -174,6 +174,7 @@ if (btnAgregarDetalle) {
         const nombre = document.getElementById('producto-nombre').textContent;
         const precioTexto = document.getElementById('producto-precio').textContent;
         const cantidadDetalle = parseInt(document.getElementById('cantidad').textContent);
+        const imagen = document.getElementById('producto-imagen').src;
 
         if (cantidadDetalle === 0) return;
 
@@ -188,7 +189,7 @@ if (btnAgregarDetalle) {
                 nombre,
                 precio: precioNumero,
                 cantidad: cantidadDetalle,
-                imagen: 'img/placeholder.jpg'
+                imagen
             });
         }
 
