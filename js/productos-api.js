@@ -133,3 +133,30 @@ async function actualizarProducto(id, nombre, descripcion, precio, stock, imagen
         return null;
     }
 }
+
+// ================================
+// OBTENER PRODUCTO POR ID
+// ================================
+
+async function obtenerProductoPorId(id) {
+    try {
+        const headers = await getHeaders();
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/productos?id=eq.${id}&select=*`, {
+            method: 'GET',
+            headers
+        });
+
+        if (!response.ok) {
+            const error = await response.json();
+            console.error('Error al obtener producto:', error);
+            return null;
+        }
+
+        const data = await response.json();
+        return data[0];
+
+    } catch (error) {
+        console.error('Error de conexión:', error);
+        return null;
+    }
+}

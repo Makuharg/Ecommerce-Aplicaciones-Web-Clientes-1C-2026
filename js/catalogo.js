@@ -16,7 +16,7 @@ function crearCard(producto) {
             <button type="button" class="btn-sumar">+</button>
         </div>
         <button type="button" class="btn-agregar-carrito">Agregar al carrito</button>
-        <a href="product-detail.html" class="detalle-link">Ver detalle</a>
+        <a href="product-detail.html?id=${producto.id}" class="detalle-link">Ver detalle</a>
     `;
     return article;
 }
