@@ -21,7 +21,7 @@ function inicializarCantidad() {
         boton.addEventListener('click', () => {
             const cantidad = obtenerCantidad(boton);
             const valor = parseInt(cantidad.textContent);
-            if (valor > 0) {
+            if (valor > 1) {
                 cantidad.textContent = valor - 1;
             }
         });
