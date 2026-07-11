@@ -652,6 +652,15 @@
     color: #ffffff;
 }
 
+.usuario-saludo {
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #ffffff;
+    font-weight: bold;
+    border-bottom: 1px solid #3a3a3a;
+    margin: 0;
+}
+
 .gestion-btn-cancelar {
     width: 100%;
     padding: 12px;

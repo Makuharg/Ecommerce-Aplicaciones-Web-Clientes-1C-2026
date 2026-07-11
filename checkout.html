@@ -35,6 +35,7 @@
                     <i data-lucide="user"></i>
                 </button>
                 <div class="usuario-menu">
+                    <p class="usuario-saludo oculto" id="usuario-saludo">Hola 👋</p>
                     <a href="#" id="ir-login">Iniciar sesión</a>
                     <a href="#" id="ir-registro">Registrarse</a>
                     <button type="button" id="btn-cerrar-sesion" class="oculto">Cerrar sesión</button>
@@ -152,6 +153,11 @@
         <h2>¡Compra confirmada!</h2>
         <p>Gracias por tu pedido. En breve recibirás un email con los detalles.</p>
         <button type="button" class="popup-btn" id="btn-ir-inicio">Volver al inicio</button>
+    </div>
+        <!-- Popup bienvenida -->
+    <div class="popup" id="popup-bienvenida">
+        <h2>👋 ¡Bienvenido!</h2>
+        <p id="popup-bienvenida-texto">Hola, usuario</p>
     </div>
     <script>lucide.createIcons();</script>
     <script src="js/supabase.js"></script>

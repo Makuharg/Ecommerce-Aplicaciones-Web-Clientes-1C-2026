@@ -39,11 +39,11 @@
                 <button type="button" id="btn-usuario" aria-label="Cuenta de usuario">
                     <i data-lucide="user"></i>
                 </button>
-                <div class="usuario-menu">
-                    <a href="#" id="ir-login">Iniciar sesión</a>
-                    <a href="#" id="ir-registro">Registrarse</a>
-                    <button type="button" id="btn-cerrar-sesion" class="oculto">Cerrar sesión</button>
-                </div>
+            <div class="usuario-menu">
+                <p class="usuario-saludo oculto" id="usuario-saludo">Hola 👋</p>
+                <a href="#" id="ir-login">Iniciar sesión</a>
+                <a href="#" id="ir-registro">Registrarse</a>
+                <button type="button" id="btn-cerrar-sesion" class="oculto">Cerrar sesión</button>
             </div>
 
             <button type="button" id="btn-carrito" aria-label="Ver carrito">
@@ -270,7 +270,11 @@
             <h2>✅ ¡Éxito!</h2>
             <p>Producto actualizado correctamente.</p>
         </div>
-        
+        <!-- Popup bienvenida -->
+        <div class="popup" id="popup-bienvenida">
+            <h2>👋 ¡Bienvenido!</h2>
+            <p id="popup-bienvenida-texto">Hola, usuario</p>
+        </div>
 <script>lucide.createIcons();</script>
 <script src="js/supabase.js"></script>
 <script src="js/auth-supabase.js"></script>

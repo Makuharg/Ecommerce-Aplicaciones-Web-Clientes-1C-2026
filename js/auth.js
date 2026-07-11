@@ -18,22 +18,29 @@ let usuarioActual = null;
 // FUNCIONES UI
 // ================================
 
-function mostrarSesionIniciada(esAdmin) {
+function mostrarSesionIniciada(esAdmin, email) {
+    const saludo = document.getElementById('usuario-saludo');
+    if (saludo) {
+        saludo.textContent = `Hola, ${email.split('@')[0]} 👋`;
+        saludo.classList.remove('oculto');
+    }
     btnCerrarSesion.classList.remove('oculto');
     linkIrLogin.forEach(el => el.classList.add('oculto'));
     linkIrRegistro.forEach(el => el.classList.add('oculto'));
-
     if (esAdmin) {
         btnGestion.classList.remove('oculto');
     }
 }
 
 function mostrarSesionCerrada() {
+    const saludo = document.getElementById('usuario-saludo');
+    if (saludo) saludo.classList.add('oculto');
     btnCerrarSesion.classList.add('oculto');
     linkIrLogin.forEach(el => el.classList.remove('oculto'));
     linkIrRegistro.forEach(el => el.classList.remove('oculto'));
     btnGestion.classList.add('oculto');
 }
+
 
 // ================================
 // VERIFICAR ROL
@@ -60,7 +67,7 @@ async function verificarSesion() {
     if (usuario) {
         usuarioActual = usuario;
         const rol = await verificarRol(usuario.id);
-        mostrarSesionIniciada(rol === 'admin');
+        mostrarSesionIniciada(rol === 'admin', usuario.email);
     }
 }
 
@@ -82,9 +89,20 @@ if (formLogin) {
         if (resultado) {
             usuarioActual = resultado.user;
             const rol = await verificarRol(resultado.user.id);
-            mostrarSesionIniciada(rol === 'admin');
+            mostrarSesionIniciada(rol === 'admin', resultado.user.email);
             cerrarPopups();
             formLogin.reset();
+
+            const nombreUsuario = resultado.user.email.split('@')[0];
+            const popupBienvenida = document.getElementById('popup-bienvenida');
+            document.getElementById('popup-bienvenida-texto').textContent = `Hola, ${nombreUsuario}. Ya estás logueado en TechZone.`;
+            popupBienvenida.classList.add('activo');
+            overlay.classList.add('activo');
+
+            setTimeout(() => {
+                popupBienvenida.classList.remove('activo');
+                overlay.classList.remove('activo');
+            }, 2500);
         } else {
             alert('Email o contraseña incorrectos.');
         }
