@@ -12,7 +12,7 @@ function crearCard(producto) {
         <p><strong>$${producto.precio.toLocaleString('es-AR')}</strong></p>
         <div class="cantidad-control">
             <button type="button" class="btn-restar">-</button>
-            <span class="cantidad">0</span>
+            <span class="cantidad">1</span>
             <button type="button" class="btn-sumar">+</button>
         </div>
         <button type="button" class="btn-agregar-carrito">Agregar al carrito</button>
