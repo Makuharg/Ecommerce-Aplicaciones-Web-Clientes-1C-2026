@@ -55,8 +55,6 @@ function inicializarCarrito() {
             const cantidad = parseInt(cantidadSpan.textContent);
             const imagen = card.querySelector('img').src;
 
-            if (cantidad === 0) return;
-
             const precioNumero = parseInt(precio.replace(/\$|\.|\./g, ''));
 
             const productoExistente = carrito.find(p => p.nombre === nombre);
@@ -67,11 +65,12 @@ function inicializarCarrito() {
                 carrito.push({ nombre, precio: precioNumero, cantidad, imagen });
             }
 
-            cantidadSpan.textContent = '0';
+            cantidadSpan.textContent = '1';
             renderizarCarrito();
         });
     });
 }
+
 // ================================
 // RENDERIZAR CARRITO
 // ================================
